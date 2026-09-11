@@ -1,0 +1,1968 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>dotyourspot – Evidencija radnog vremena</title>
+<meta name="theme-color" content="#f5f5f7"/>
+<meta name="mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="default"/>
+<meta name="apple-mobile-web-app-title" content="Radni sati"/>
+<link rel="manifest" href="manifest.json"/>
+<link rel="apple-touch-icon" href="data:image/png;base64,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"/>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.2/babel.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.4.0/exceljs.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme:light;
+  --bg:#f5f5f7;
+  --surface:#ffffff;
+  --surface-secondary:#f5f5f7;
+  --surface-elevated:rgba(255,255,255,0.85);
+  --sidebar-bg:rgba(247,247,249,0.94);
+  --scrim:rgba(0,0,0,0.28);
+  --border:rgba(0,0,0,0.08);
+  --border-strong:rgba(0,0,0,0.14);
+  --hover:rgba(0,0,0,0.04);
+  --text-primary:#1d1d1f;
+  --text-secondary:#6e6e73;
+  --text-tertiary:#aeaeb2;
+  --accent:#0071e3;
+  --accent-hover:#0077ed;
+  --accent-light:rgba(0,113,227,0.08);
+  --on-accent:#ffffff;
+  --red:#ff3b30;
+  --red-light:rgba(255,59,48,0.08);
+  --green:#34c759;
+  --green-light:rgba(52,199,89,0.08);
+  --orange:#ff9500;
+  --orange-light:rgba(255,149,0,0.1);
+  --purple:#af52de;
+  --radius-sm:8px;
+  --radius-md:12px;
+  --radius-lg:16px;
+  --radius-xl:20px;
+  --shadow-sm:0 1px 3px rgba(0,0,0,0.06),0 1px 2px rgba(0,0,0,0.04);
+  --shadow-md:0 4px 16px rgba(0,0,0,0.08),0 2px 6px rgba(0,0,0,0.04);
+  --shadow-lg:0 12px 40px rgba(0,0,0,0.12),0 4px 12px rgba(0,0,0,0.06);
+  --shadow-modal:0 24px 64px rgba(0,0,0,0.16),0 8px 24px rgba(0,0,0,0.08);
+  --font:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Helvetica Neue","Inter",sans-serif;
+
+  /* Paleta za tablice, kalendar i oznake */
+  --c-white:#ffffff;
+  --c-slate-900:#1e293b;
+  --c-slate-600:#475569;
+  --c-slate-500:#64748b;
+  --c-slate-400:#94a3b8;
+  --c-slate-300:#cbd5e1;
+  --c-slate-200:#e2e8f0;
+  --c-slate-100:#f1f5f9;
+  --c-slate-50:#f8fafc;
+  --c-neutral-50:#fafafa;
+  --c-blue-700:#1d4ed8;
+  --c-blue-600:#2563eb;
+  --c-blue-200:#bfdbfe;
+  --c-blue-100:#dbeafe;
+  --c-blue-50:#eff6ff;
+  --c-sky-50:#f0f9ff;
+  --c-red-600:#dc2626;
+  --c-red-500:#ef4444;
+  --c-red-200:#fecaca;
+  --c-red-100:#fee2e2;
+  --c-red-50:#fff1f2;
+  --c-red-25:#fef2f2;
+  --c-amber-600:#d97706;
+  --c-amber-500:#f59e0b;
+  --c-amber-200:#fde68a;
+  --c-amber-100:#fef3c7;
+  --c-amber-50:#fffbeb;
+  --c-violet-600:#7c3aed;
+  --c-violet-500:#8b5cf6;
+  --c-violet-200:#e9d5ff;
+  --c-violet-50:#faf5ff;
+  --c-green-600:#16a34a;
+  --c-green-200:#bbf7d0;
+  --c-green-50:#f0fdf4;
+  --c-indigo-500:#6366f1;
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#000000;
+  --surface:#1c1c1e;
+  --surface-secondary:#2c2c2e;
+  --surface-elevated:rgba(28,28,30,0.82);
+  --sidebar-bg:rgba(22,22,24,0.94);
+  --scrim:rgba(0,0,0,0.55);
+  --border:rgba(255,255,255,0.10);
+  --border-strong:rgba(255,255,255,0.18);
+  --hover:rgba(255,255,255,0.06);
+  --text-primary:#f5f5f7;
+  --text-secondary:#a1a1a6;
+  --text-tertiary:#6e6e73;
+  --accent:#0a84ff;
+  --accent-hover:#3d9bff;
+  --accent-light:rgba(10,132,255,0.16);
+  --on-accent:#ffffff;
+  --red:#ff453a;
+  --red-light:rgba(255,69,58,0.16);
+  --green:#30d158;
+  --green-light:rgba(48,209,88,0.16);
+  --orange:#ff9f0a;
+  --orange-light:rgba(255,159,10,0.16);
+  --purple:#bf5af2;
+  --shadow-sm:0 1px 3px rgba(0,0,0,0.5),0 1px 2px rgba(0,0,0,0.4);
+  --shadow-md:0 4px 16px rgba(0,0,0,0.55),0 2px 6px rgba(0,0,0,0.4);
+  --shadow-lg:0 12px 40px rgba(0,0,0,0.6),0 4px 12px rgba(0,0,0,0.45);
+  --shadow-modal:0 24px 64px rgba(0,0,0,0.7),0 8px 24px rgba(0,0,0,0.5);
+
+  --c-white:#1c1c1e;
+  --c-slate-900:#f5f5f7;
+  --c-slate-600:#a1a1a6;
+  --c-slate-500:#98989d;
+  --c-slate-400:#8e8e93;
+  --c-slate-300:#5a5a60;
+  --c-slate-200:rgba(255,255,255,0.16);
+  --c-slate-100:rgba(255,255,255,0.10);
+  --c-slate-50:rgba(255,255,255,0.05);
+  --c-neutral-50:rgba(255,255,255,0.035);
+  --c-blue-700:#5aa9ff;
+  --c-blue-600:#0a84ff;
+  --c-blue-200:rgba(10,132,255,0.45);
+  --c-blue-100:rgba(10,132,255,0.28);
+  --c-blue-50:rgba(10,132,255,0.11);
+  --c-sky-50:rgba(10,132,255,0.10);
+  --c-red-600:#ff6961;
+  --c-red-500:#ff453a;
+  --c-red-200:rgba(255,69,58,0.45);
+  --c-red-100:rgba(255,69,58,0.26);
+  --c-red-50:rgba(255,69,58,0.10);
+  --c-red-25:rgba(255,69,58,0.10);
+  --c-amber-600:#ffb340;
+  --c-amber-500:#ff9f0a;
+  --c-amber-200:rgba(255,159,10,0.45);
+  --c-amber-100:rgba(255,159,10,0.26);
+  --c-amber-50:rgba(255,159,10,0.10);
+  --c-violet-600:#d08bff;
+  --c-violet-500:#bf5af2;
+  --c-violet-200:rgba(191,90,242,0.45);
+  --c-violet-50:rgba(191,90,242,0.10);
+  --c-green-600:#30d158;
+  --c-green-200:rgba(48,209,88,0.45);
+  --c-green-50:rgba(48,209,88,0.10);
+  --c-indigo-500:#7d7aff;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}
+body{font-family:var(--font);font-weight:400;background:var(--bg);color:var(--text-primary);font-size:15px;letter-spacing:-0.01em;}
+input,select,button,th,td{font-family:var(--font);}
+input:focus{outline:none;border-color:var(--accent)!important;box-shadow:0 0 0 3px var(--accent-light)!important;}
+select:focus{outline:none;}
+input[type=number]::-webkit-inner-spin-button{opacity:0;}
+::-webkit-scrollbar{width:6px;height:6px;}
+::-webkit-scrollbar-track{background:transparent;}
+::-webkit-scrollbar-thumb{background:var(--border-strong);border-radius:10px;}
+::-webkit-scrollbar-thumb:hover{background:var(--text-tertiary);}
+:root[data-theme="dark"] input[type=date]::-webkit-calendar-picker-indicator,
+:root[data-theme="dark"] input[type=time]::-webkit-calendar-picker-indicator{filter:invert(1);opacity:.7;}
+
+/* Sidebar */
+.sidebar-link{
+  display:flex;align-items:center;gap:10px;
+  padding:8px 12px;border-radius:var(--radius-sm);
+  cursor:pointer;font-size:14px;font-weight:400;
+  color:var(--text-secondary);letter-spacing:-0.01em;
+  transition:all .15s ease;border:none;background:none;
+  width:100%;text-align:left;
+}
+.sidebar-link:hover{background:var(--hover);color:var(--text-primary);}
+.sidebar-link.active{background:var(--accent);color:var(--on-accent);font-weight:500;}
+.sidebar-link.active svg{opacity:1;}
+
+/* Cards */
+.card{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:var(--radius-lg);
+  padding:20px 22px;
+  box-shadow:var(--shadow-sm);
+}
+
+/* Buttons */
+.btn{
+  border:none;border-radius:var(--radius-md);
+  padding:9px 18px;cursor:pointer;
+  font-family:var(--font);font-weight:500;
+  font-size:14px;letter-spacing:-0.01em;
+  transition:all .15s ease;
+  display:inline-flex;align-items:center;gap:6px;
+}
+.btn:active{transform:scale(0.98);}
+.btn-primary{
+  background:var(--accent);color:var(--on-accent);
+  box-shadow:0 1px 4px rgba(0,113,227,0.3);
+}
+.btn-primary:hover{background:var(--accent-hover);box-shadow:0 2px 8px rgba(0,113,227,0.4);}
+.btn-outline{
+  background:var(--surface);color:var(--text-primary);
+  border:1px solid var(--border-strong);
+  box-shadow:var(--shadow-sm);
+}
+.btn-outline:hover{background:var(--surface-secondary);border-color:var(--text-tertiary);}
+.btn-blue{background:var(--accent);color:var(--on-accent);}
+
+/* Animations */
+@keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes slideIn{from{opacity:0;transform:translateX(6px)}to{opacity:1;transform:translateX(0)}}
+.page-enter{animation:fadeUp .25s cubic-bezier(0.34,1.56,0.64,1) both;}
+
+/* Inputs */
+input,select{
+  font-family:var(--font);
+  border-radius:var(--radius-sm);
+  border:1px solid var(--border-strong);
+  background:var(--surface);
+  color:var(--text-primary);
+  transition:all .15s;
+  font-size:14px;
+}
+input::placeholder{color:var(--text-tertiary);}
+
+/* Table */
+th{font-weight:600;letter-spacing:-0.01em;}
+td{letter-spacing:-0.01em;}
+
+/* Segment control */
+.seg-ctrl{
+  display:flex;
+  background:var(--hover);
+  border-radius:var(--radius-sm);
+  padding:3px;gap:2px;
+}
+.seg-btn{
+  padding:6px 14px;border:none;
+  cursor:pointer;font-size:13px;font-weight:500;
+  border-radius:6px;
+  background:transparent;color:var(--text-secondary);
+  transition:all .15s;letter-spacing:-0.01em;
+  font-family:var(--font);
+}
+.seg-btn.active{
+  background:var(--surface);
+  color:var(--text-primary);
+  box-shadow:0 1px 4px rgba(0,0,0,0.12),0 1px 2px rgba(0,0,0,0.06);
+}
+
+/* Tag badges */
+.badge{
+  display:inline-flex;align-items:center;
+  padding:2px 8px;border-radius:20px;
+  font-size:11px;font-weight:500;letter-spacing:0;
+}
+
+/* ── Obrazac za unos (stil DYS CRM) ─────────────────────────────────────── */
+.unos-scrim{
+  position:fixed;inset:0;z-index:200;
+  background:var(--scrim);
+  backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+  display:flex;align-items:center;justify-content:center;padding:16px;
+  animation:fadeIn .18s ease both;
+}
+.unos-sheet{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:20px;
+  box-shadow:var(--shadow-modal);
+  width:100%;max-width:560px;max-height:92vh;
+  display:flex;flex-direction:column;overflow:hidden;
+  animation:fadeUp .22s cubic-bezier(0.32,0.72,0,1) both;
+}
+.unos-head{
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  padding:20px 24px;border-bottom:1px solid var(--border);flex-shrink:0;
+}
+.unos-title{font-size:20px;font-weight:700;letter-spacing:-0.02em;color:var(--text-primary);}
+.unos-sub{font-size:12px;color:var(--text-tertiary);margin-top:2px;}
+.unos-close{
+  width:32px;height:32px;border-radius:50%;flex-shrink:0;
+  background:var(--surface-secondary);border:none;cursor:pointer;
+  color:var(--text-secondary);display:flex;align-items:center;justify-content:center;
+  transition:all .15s;
+}
+.unos-close:hover{background:var(--border);color:var(--text-primary);}
+.unos-body{padding:20px 24px;overflow-y:auto;flex:1;}
+.unos-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px 18px;}
+.unos-field{display:flex;flex-direction:column;gap:6px;min-width:0;}
+.unos-field.full{grid-column:1 / -1;}
+.unos-pair{display:grid;grid-template-columns:1fr 1fr;gap:14px 18px;grid-column:1 / -1;}
+.unos-label{font-size:13px;font-weight:600;color:var(--text-secondary);letter-spacing:-0.01em;}
+.unos-input,.unos-select{
+  width:100%;
+  background:var(--surface-secondary);
+  border:1px solid var(--border);
+  border-radius:var(--radius-md);
+  padding:11px 14px;
+  font-size:15px;font-family:var(--font);
+  color:var(--text-primary);
+  letter-spacing:-0.01em;
+  transition:all .15s;
+  box-sizing:border-box;
+  min-height:46px;
+}
+.unos-select{
+  appearance:none;-webkit-appearance:none;
+  padding-right:38px;cursor:pointer;
+  background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' fill='none' stroke='%238e8e93' stroke-width='2' viewBox='0 0 24 24'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 13px center;
+}
+.unos-input:focus,.unos-select:focus{
+  outline:none;border-color:var(--accent);
+  box-shadow:0 0 0 3px var(--accent-light);
+  background:var(--surface);
+}
+.unos-note{
+  display:flex;align-items:center;gap:8px;
+  background:var(--accent-light);
+  border:1px solid var(--c-blue-200);
+  border-radius:var(--radius-md);
+  padding:11px 14px;font-size:13px;color:var(--accent);
+  margin-top:16px;
+}
+.unos-foot{
+  display:flex;align-items:center;justify-content:flex-end;gap:10px;
+  padding:16px 24px;border-top:1px solid var(--border);
+  background:var(--surface);flex-shrink:0;
+}
+.unos-adv{
+  margin-top:18px;border-top:1px solid var(--border);padding-top:14px;
+}
+.unos-adv-btn{
+  display:flex;align-items:center;gap:7px;width:100%;
+  background:none;border:none;cursor:pointer;padding:4px 0;
+  font-family:var(--font);font-size:13px;font-weight:600;
+  color:var(--text-secondary);letter-spacing:-0.01em;
+}
+.unos-adv-btn:hover{color:var(--text-primary);}
+.unos-codes{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:14px;}
+
+/* Prekidač teme */
+.theme-seg{display:flex;background:var(--hover);border-radius:10px;padding:3px;gap:2px;}
+.theme-seg button{
+  flex:1;display:flex;align-items:center;justify-content:center;gap:5px;
+  border:none;background:transparent;cursor:pointer;
+  border-radius:8px;padding:7px 4px;
+  font-family:var(--font);font-size:11.5px;font-weight:500;
+  color:var(--text-secondary);transition:all .15s;
+}
+.theme-seg button.on{
+  background:var(--surface);color:var(--text-primary);
+  box-shadow:var(--shadow-sm);font-weight:600;
+}
+
+/* ── Sinkronizacija ─────────────────────────────────────────────────────── */
+.sync-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;}
+.sync-idle{background:var(--text-tertiary);}
+.sync-run{background:var(--orange);animation:pulse 1s ease-in-out infinite;}
+.sync-ok{background:var(--green);}
+.sync-err{background:var(--red);}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.3}}
+
+/* ── Mobilni izbornik ───────────────────────────────────────────────────── */
+.dys-burger{display:none;}
+.dys-overlay{display:none;}
+
+@media(max-width:900px){
+  body{font-size:16px;}
+  .dys-sidebar{
+    transform:translateX(-101%);
+    transition:transform .28s cubic-bezier(0.32,0.72,0,1);
+    width:264px!important;
+    box-shadow:0 0 40px rgba(0,0,0,0.18);
+  }
+  .dys-sidebar.open{transform:translateX(0);}
+  .dys-main{
+    margin-left:0!important;
+    max-width:100vw!important;
+    padding:70px 14px 32px!important;
+  }
+  .dys-burger{
+    display:flex;align-items:center;justify-content:center;
+    position:fixed;top:12px;left:12px;z-index:120;
+    width:44px;height:44px;border-radius:12px;
+    background:var(--surface-elevated);
+    backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+    border:1px solid var(--border);box-shadow:var(--shadow-md);
+    color:var(--text-primary);cursor:pointer;
+  }
+  .dys-overlay{
+    display:block;position:fixed;inset:0;z-index:99;
+    background:var(--scrim);
+    backdrop-filter:blur(2px);-webkit-backdrop-filter:blur(2px);
+    animation:fadeIn .2s ease both;
+  }
+  /* Tablice ostaju čitljive uz vodoravno klizanje */
+  .card{padding:16px 14px!important;overflow-x:auto;-webkit-overflow-scrolling:touch;}
+  table{min-width:600px;}
+  /* Prsti trebaju veće mete */
+  .sidebar-link{padding:12px 14px;font-size:15px;}
+  input,select{min-height:42px;font-size:16px;}
+  .btn{padding:12px 18px;font-size:15px;}
+}
+@media(max-width:900px){
+  /* Mreže su zadane inline stilom, pa ih presložimo po atributu */
+  .dys-main div[style*="grid-template-columns"],
+  .dys-main div[style*="gridTemplateColumns"]{
+    grid-template-columns:1fr!important;
+  }
+  .dys-main [style*="max-width"]{max-width:100%!important;}
+  .dys-main [style*="white-space:nowrap"]{white-space:normal!important;}
+  .page-enter{overflow-x:hidden;}
+}
+@media(max-width:520px){
+  .dys-main{padding:66px 10px 28px!important;}
+  html,body{overflow-x:hidden;}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation-duration:.01ms!important;transition-duration:.01ms!important;}
+}
+
+/* ── Mobilni prikaz — zaštitna pravila na kraju ───────────────────────── */
+@media(max-width:900px){
+  .dys-main{width:100%!important;max-width:100vw!important;flex:none!important;
+            box-sizing:border-box!important;margin-left:0!important}
+  /* Sve mreže u jedan stupac — osim kalendara, koji mora zadržati 7 stupaca */
+  .dys-main [style*="grid-template-columns"]:not([style*="repeat(7"]){
+    grid-template-columns:1fr!important}
+  .dys-main [style*="min-width"]{min-width:0!important}
+  .dys-main [style*="max-width"]{max-width:100%!important}
+
+  /* Kalendar: uži razmaci i manji tekst da sedam stupaca stane */
+  .dys-main [style*="repeat(7"]{gap:3px!important}
+  .dys-main [style*="repeat(7"] *{font-size:11px!important;overflow-wrap:anywhere}
+
+  /* Prst treba veće mete */
+  .dys-main button{min-height:40px}
+  .dys-main input,.dys-main select{min-height:42px}
+
+  html,body{overflow-x:hidden!important}
+}
+
+/* ── Obrazac za unos na mobitelu — pravila na samom kraju ──────────────── */
+@media(max-width:640px){
+  .unos-scrim{padding:0!important;align-items:flex-end!important}
+  .unos-sheet{
+    max-width:100%!important;width:100%!important;
+    max-height:94vh!important;height:auto!important;
+    border-radius:22px 22px 0 0!important;
+    border-bottom:none!important;
+    animation:sheetUp .26s cubic-bezier(0.32,0.72,0,1) both!important;
+  }
+  .unos-head{padding:16px 18px 14px!important}
+  .unos-title{font-size:19px!important}
+  .unos-body{padding:16px 18px!important;-webkit-overflow-scrolling:touch}
+  .unos-foot{
+    padding:12px 18px calc(12px + env(safe-area-inset-bottom))!important;
+    gap:10px!important;
+  }
+  .unos-foot .btn{flex:1!important;justify-content:center!important;min-height:48px!important}
+  /* Jedan stupac — polja idu jedno ispod drugoga kao u CRM-u */
+  .unos-grid{grid-template-columns:1fr!important;gap:13px!important}
+  .unos-pair{grid-template-columns:1fr 1fr!important;gap:13px!important}
+  .unos-codes{grid-template-columns:1fr!important}
+  .unos-input,.unos-select{font-size:16px!important;min-height:48px!important;border-radius:12px!important}
+  .unos-label{font-size:13px!important}
+}
+@keyframes sheetUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+</style>
+<script>
+/* Tema se primjenjuje prije iscrtavanja kako ne bi bilo bljeska */
+(function(){try{
+  var m=localStorage.getItem("dys_theme")||"system";
+  var dark=m==="dark"||(m==="system"&&window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches);
+  document.documentElement.setAttribute("data-theme",dark?"dark":"light");
+  var t=document.querySelector('meta[name="theme-color"]');
+  if(t)t.setAttribute("content",dark?"#000000":"#f5f5f7");
+}catch(e){}})();
+</script>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+const {useState,useEffect,useCallback,useRef,useMemo}=React;
+
+const DEFAULT_EMPLOYEES=[
+  {id:"karlo",  name:"KARLO ĐUDERIJA",   title:"DIREKTOR"},
+  {id:"zlatko", name:"ZLATKO KOVAČIĆ",   title:"DIREKTOR"},
+  {id:"ivica",  name:"IVICA ĐOGAŠ",      title:"VODITELJ PRODAJE"},
+  {id:"petra",  name:"PETRA KOS",         title:"HEAD OF DESIGN"},
+  {id:"tina",   name:"TINA MASNIĆ",       title:"DESIGN"},
+  {id:"karla",  name:"KARLA UJAKOVIĆ",   title:"DESIGN"},
+  {id:"ante",   name:"ANTE RADMILOVIĆ",  title:"MARKETING"},
+  {id:"marko",  name:"MARKO BOLJAT",     title:"PROGRAMER"},
+  {id:"bruna",  name:"BRUNA MAMIĆ",       title:"PROGRAMER"},
+  {id:"josip",  name:"JOSIP VULETIĆ",    title:"PROGRAMER"},
+  {id:"tonci",  name:"TONĆI DOLIĆ",      title:"PROGRAMER"},
+  {id:"mario",  name:"MARIO MAMUZA",     title:"PROGRAMER"},
+];
+const MONTHS=["Siječanj","Veljača","Ožujak","Travanj","Svibanj","Lipanj","Srpanj","Kolovoz","Rujan","Listopad","Studeni","Prosinac"];
+const CODE_LABELS={
+  I:"Zastoj/prekid rada (krivnja poslodavca)",II:"Ukupno dnevno radno vrijeme (sati)",
+  III:"Rad noću",IV:"Prekovremeni rad",V:"Smjenski rad",
+  VI:"Rad nedjeljom/blagdanom/neradnim danom",VII:"Godišnji odmor",
+  VIII:"Blagdani (naknada plaće)",IX:"Bolovanje",X:"Plaćeni dopust",
+  XI:"Očinski dopust",XII:"Neplaćeni dopust (osobna skrb)",XIII:"Terenski rad",
+  XIV:"Pripravnost",XV:"Vojna obveza",XVI:"Nenazočnost po zahtjevu radnika",
+  XVII:"Štrajk",XVIII:"Lockout",XIX:"Nenazočnost (krivnja radnika)",
+  XX:"Neplaćeni dopust (kandidati za javne funkcije)",
+};
+
+const DAYS_IN_MONTH=(y,m)=>new Date(y,m+1,0).getDate();
+const DOW=(y,m,d)=>new Date(y,m,d).getDay();
+const IS_SAT=(y,m,d)=>DOW(y,m,d)===6;
+const IS_SUN=(y,m,d)=>DOW(y,m,d)===0;
+const IS_WEEKEND=(y,m,d)=>IS_SAT(y,m,d)||IS_SUN(y,m,d);
+const DAY_NAMES=["Ned","Pon","Uto","Sri","Čet","Pet","Sub"];
+
+function getEaster(year){
+  const a=year%19,b=Math.floor(year/100),c=year%100;
+  const d=Math.floor(b/4),e=b%4,f=Math.floor((b+8)/25);
+  const g=Math.floor((b-f+1)/3),h=(19*a+b-d-g+15)%30;
+  const i=Math.floor(c/4),k=c%4,l=(32+2*e+2*i-h-k)%7;
+  const m=Math.floor((a+11*h+22*l)/451);
+  return new Date(year,Math.floor((h+l-7*m+114)/31)-1,((h+l-7*m+114)%31)+1);
+}
+function getCroatianHolidays(year){
+  const easter=getEaster(year);
+  const add=(d,n)=>{const r=new Date(d);r.setDate(r.getDate()+n);return r;};
+  const fmt=d=>`${d.getFullYear()}-${d.getMonth()}-${d.getDate()}`;
+  const h={};
+  [[0,1,"Nova godina"],[0,6,"Sveta tri kralja"],[4,1,"Međunarodni praznik rada"],
+   [4,30,"Dan državnosti"],[5,22,"Dan antifašističke borbe"],
+   [7,5,"Dan domovinske zahvalnosti"],[7,15,"Velika Gospa"],
+   [10,1,"Dan svih svetih"],[10,18,"Dan sjećanja na žrtve Vukovara"],
+   [11,25,"Božić"],[11,26,"Sveti Stjepan"]]
+  .forEach(([mo,dy,name])=>{h[`${year}-${mo}-${dy}`]=name;});
+  h[fmt(easter)]="Uskrs";h[fmt(add(easter,1))]="Uskrsni ponedjeljak";h[fmt(add(easter,60))]="Tijelovo";
+  return h;
+}
+const getHoliday=(y,m,d)=>getCroatianHolidays(y)[`${y}-${m}-${d}`]||null;
+
+// ── Tema (svijetla / tamna / prema sustavu) ────────────────────────────────────
+const LS_THEME="dys_theme";
+const prefersDark=()=>window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;
+function applyTheme(mode){
+  const dark=mode==="dark"||(mode==="system"&&prefersDark());
+  document.documentElement.setAttribute("data-theme",dark?"dark":"light");
+  const meta=document.querySelector('meta[name="theme-color"]');
+  if(meta)meta.setAttribute("content",dark?"#000000":"#f5f5f7");
+}
+
+const LS_KEY="dys_v2";
+const LS_EMP_KEY="dys_employees_v1";
+const lsLoad=()=>{try{const r=localStorage.getItem(LS_KEY);return r?JSON.parse(r):{}}catch{return{}}};
+const lsSave=d=>{try{localStorage.setItem(LS_KEY,JSON.stringify(d))}catch{}};
+const lsLoadEmps=()=>{try{const r=localStorage.getItem(LS_EMP_KEY);return r?JSON.parse(r):DEFAULT_EMPLOYEES}catch{return DEFAULT_EMPLOYEES}};
+const lsSaveEmps=e=>{try{localStorage.setItem(LS_EMP_KEY,JSON.stringify(e))}catch{}};
+
+// ── Supabase ───────────────────────────────────────────────────────────────────
+const SB_URL="https://yxnlnxoeplvwucgaoanj.supabase.co";
+const SB_KEY="sb_publishable_tu7JAAwb7tHGMIckeLYTVw_gm32d4_E";
+let _sb=null;
+function sbClient(){
+  if(_sb)return _sb;
+  if(!window.supabase)return null;
+  _sb=window.supabase.createClient(SB_URL,SB_KEY,{auth:{persistSession:true,autoRefreshToken:true}});
+  return _sb;
+}
+// Poznata povremena greška: token izgleda kao da je izdan u budućnosti.
+// Rješenje je ponoviti zahtjev s rastućom odgodom.
+function isClockError(e){
+  const m=((e&&(e.message||e.msg))||"")+" "+((e&&e.code)||"");
+  return /issued at future|PGRST303|JWSInvalidSignature/i.test(m);
+}
+const wait=ms=>new Promise(r=>setTimeout(r,ms));
+async function withRetry(fn,tries=4){
+  let last=null;
+  for(let i=0;i<tries;i++){
+    try{ return await fn(); }
+    catch(e){
+      last=e;
+      if(!isClockError(e)) throw e;
+      await wait([400,1200,2500,4000][i]||4000);
+    }
+  }
+  throw last;
+}
+
+async function cloudLoad(){
+  return withRetry(_cloudLoad);
+}
+async function _cloudLoad(){
+  const c=sbClient(); if(!c) throw new Error("Supabase nije učitan");
+  const [r1,r2]=await Promise.all([
+    c.from("radnici").select("id,ime,titula,redoslijed").order("redoslijed",{ascending:true}),
+    c.from("evidencija").select("kljuc,podaci")
+  ]);
+  if(r1.error) throw r1.error;
+  if(r2.error) throw r2.error;
+  const employees=(r1.data||[]).map(r=>({id:r.id,name:r.ime,title:r.titula||""}));
+  const data={}; (r2.data||[]).forEach(r=>{data[r.kljuc]=r.podaci||{};});
+  return {employees,data};
+}
+async function cloudSaveKeys(allData,keys){
+  return withRetry(()=>_cloudSaveKeys(allData,keys));
+}
+async function _cloudSaveKeys(allData,keys){
+  const c=sbClient(); if(!c||!keys.length)return;
+  const rows=keys.map(k=>({kljuc:k,podaci:allData[k]||{},azurirano:new Date().toISOString()}));
+  const {error}=await c.from("evidencija").upsert(rows,{onConflict:"kljuc"});
+  if(error) throw error;
+}
+async function cloudSaveEmps(emps){
+  return withRetry(()=>_cloudSaveEmps(emps));
+}
+async function _cloudSaveEmps(emps){
+  const c=sbClient(); if(!c)return;
+  const rows=emps.map((e,i)=>({id:e.id,ime:e.name,titula:e.title||"",redoslijed:i}));
+  const {error}=await c.from("radnici").upsert(rows,{onConflict:"id"});
+  if(error) throw error;
+}
+async function cloudDeleteEmp(id){
+  const c=sbClient(); if(!c)return;
+  const {error}=await c.from("radnici").delete().eq("id",id);
+  if(error) throw error;
+}
+
+// ── Manifest za instalaciju na početni zaslon ──────────────────────────────────
+function installManifest(iconB64){
+  try{
+    const m={name:"Evidencija radnih sati",short_name:"Radni sati",start_url:".",
+      display:"standalone",background_color:"#f5f5f7",theme_color:"#f5f5f7",
+      icons:[{src:"data:image/jpeg;base64,"+iconB64,sizes:"127x68",type:"image/jpeg"}]};
+    const url=URL.createObjectURL(new Blob([JSON.stringify(m)],{type:"application/manifest+json"}));
+    const l=document.createElement("link"); l.rel="manifest"; l.href=url;
+    document.head.appendChild(l);
+    const t=document.createElement("link"); t.rel="apple-touch-icon";
+    t.href="data:image/jpeg;base64,"+iconB64; document.head.appendChild(t);
+  }catch(e){}
+}
+
+const emptyDay=()=>({start:"",end:"",codes:{},note:""});
+function calcH(s,e){if(!s||!e)return 0;const a=parseFloat(s),b=parseFloat(e);if(isNaN(a)||isNaN(b)||b<a)return 0;return b-a;}
+
+function getInitials(name){const p=name.split(" ");return((p[0]||"")[0]+(p[1]||"")[0]).toUpperCase();}
+const AVATAR_COLORS=["#1e293b","#1d4ed8","#0369a1","#0f766e","#15803d","#7c3aed","#be185d","#c2410c","#b45309","#4338ca","#0e7490","#065f46"];
+function getAvatarColor(id,employees){const idx=(employees||DEFAULT_EMPLOYEES).findIndex(e=>e.id===id);return AVATAR_COLORS[Math.max(idx,0)%AVATAR_COLORS.length];}
+
+const LOGO_B64="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";
+
+// ── Excel helpers ──────────────────────────────────────────────────────────────
+async function fillSheet(ws,wb,empName,empTitle,year,month,monthData,isFirst,startRow=1){
+  const dc=DAYS_IN_MONTH(year,month);
+  const pad=n=>String(n).padStart(2,"0");
+  const period=`01.${pad(month+1)}.${year}.-${pad(dc)}.${pad(month+1)}.${year}.`;
+
+  // Column widths — col 1=logo, col 2=datum, col 3=početak, col 4=završetak, col5+=kodovi
+  if(isFirst){
+    ws.getColumn(1).width=3;   // logo stub
+    ws.getColumn(2).width=8;   // datum
+    ws.getColumn(3).width=14;  // početak rada
+    ws.getColumn(4).width=16;  // završetak rada
+    const cw=[9,12,9,13,10,12,14,10,11,13,13,15];Object.keys(CODE_LABELS).slice(0,12).forEach((_,i)=>{ws.getColumn(5+i).width=cw[i]||12;});ws.getColumn(17).width=13;
+  }
+
+  const R=n=>startRow+n;
+  const sc=(r,c,v,s={})=>{ws.getCell(r,c).value=v;if(Object.keys(s).length)ws.getCell(r,c).style=s;};
+  const thin={style:"thin",color:{argb:"FFD0D0D0"}};
+  const allBorder={top:thin,left:thin,bottom:thin,right:thin};
+
+  // ── Header info (no logo area, start from col 1) ──
+  ws.getRow(R(0)).height=15;
+  sc(R(0),1,"Organizacijska jedinica: DOT YOUR SPOT",{font:{bold:true,size:10,name:"Calibri"},alignment:{vertical:"middle"}});
+  ws.mergeCells(R(0),1,R(0),10);
+
+  ws.getRow(R(1)).height=14;
+  sc(R(1),1,`Razdoblje: ${pad(1)}.${pad(month+1)}.${year}.-${pad(dc)}.${pad(month+1)}.${year}.`,{font:{bold:true,size:10,name:"Calibri"},alignment:{vertical:"middle"}});
+  ws.mergeCells(R(1),1,R(1),10);
+
+  ws.getRow(R(2)).height=14;
+  sc(R(2),1,`Radnik: ${empName} - ${empTitle}`,{font:{bold:true,size:10,color:{argb:"FF1E40AF"},name:"Calibri"},alignment:{vertical:"middle"}});
+  ws.mergeCells(R(2),1,R(2),10);
+
+  ws.getRow(R(3)).height=6; // spacer
+
+  // ── Column headers ──
+  const HR=R(4);
+  ws.getRow(HR).height=22;
+  const CODE_SHORT=["Zastoj","Ukupno sati","Rad noću","Prekovremeni","Smjenski","Rad ned/blag","Godišnji odmor","Blagdani","Bolovanje","Plaćeni dop.","Očinski dop.","Neplaćeni dop."];
+  const headers=["DATUM","POČETAK RADA","ZAVRŠETAK RADA",...CODE_SHORT,"UKUPNO SATI"];
+  headers.forEach((h,ci)=>{
+    const cell=ws.getCell(HR,2+ci);
+    cell.value=h;
+    cell.style={
+      font:{bold:true,size:8,color:{argb:"FFFFFFFF"},name:"Calibri"},
+      fill:{type:"pattern",pattern:"solid",fgColor:{argb:"FF1E3A5F"}},
+      alignment:{horizontal:"center",vertical:"middle",wrapText:true},
+      border:allBorder
+    };
+  });
+
+  // ── Day rows ──
+  const holidays=getCroatianHolidays(year);
+  for(let d=1;d<=dc;d++){
+    const dd=monthData[d]||emptyDay();
+    const totalH=parseFloat(dd.codes?.II)||calcH(dd.start,dd.end)||0;
+    const ri=R(4+d);
+    ws.getRow(ri).height=14;
+    const isSat=IS_SAT(year,month,d),isSun=IS_SUN(year,month,d),isHol=!!holidays[`${year}-${month}-${d}`];
+    const hasSick=parseFloat(dd.codes?.IX||0)>0;
+
+    // Row fill
+    let rowFill=null;
+    if(isSat) rowFill={type:"pattern",pattern:"solid",fgColor:{argb:"FFFFFF99"}};  // žuta
+    if(isSun) rowFill={type:"pattern",pattern:"solid",fgColor:{argb:"FFFFCCCC"}};  // crvena
+    if(isHol) rowFill={type:"pattern",pattern:"solid",fgColor:{argb:"FFD6EAFF"}};  // svijetlo plava
+
+    const cellStyle=(extra={})=>{
+      const base={alignment:{horizontal:"center",vertical:"middle"},border:allBorder,font:{size:9,name:"Calibri",...(extra.font||{})},...extra};
+      if(rowFill) base.fill=rowFill;
+      return base;
+    };
+
+    // Datum
+    const datumCell=ws.getCell(ri,2);
+    datumCell.value=`${d}.`;
+    datumCell.style=cellStyle({font:{bold:true,size:9,name:"Calibri"},alignment:{horizontal:"left",vertical:"middle",indent:1}});
+
+    // Početak rada
+    const startCell=ws.getCell(ri,3);
+    startCell.value=dd.start||"";
+    startCell.style=cellStyle();
+
+    // Završetak rada
+    const endCell=ws.getCell(ri,4);
+    endCell.value=dd.end||"";
+    endCell.style=cellStyle();
+
+    // Kodovi (I. – XX.)
+    Object.keys(CODE_LABELS).slice(0,12).forEach((k,ci)=>{
+      // II = ukupni sati (automatski izračun)
+      let raw;
+      if(k==="II") raw=totalH||"";
+      else raw=dd.codes?.[k]||"";
+      const v=raw!==""?(isNaN(raw)?raw:Number(raw)):"";
+      const cell=ws.getCell(ri,5+ci);
+      cell.value=v;
+
+      // Font colour logic
+      let fontOverride={size:9,name:"Calibri"};
+      if(k==="II"&&v>0)  fontOverride={...fontOverride,bold:true,color:{argb:"FF2563EB"}}; // plava - ukupno sati
+      if(k==="IX"&&v>0)  fontOverride={...fontOverride,bold:true,color:{argb:"FFDC2626"}}; // crvena - bolovanje
+
+      // IX rubrika fill: ako ima bolovanje → crvena pozadina bez obzira na red
+      let cellFill=rowFill;
+      if(k==="IX"&&v>0) cellFill={type:"pattern",pattern:"solid",fgColor:{argb:"FFFECACA"}};
+
+      const s={alignment:{horizontal:"center",vertical:"middle"},border:allBorder,font:fontOverride};
+      if(cellFill) s.fill=cellFill;
+      cell.style=s;
+    });
+
+    // Kolona UKUPNO SATI = zbroj svih unesenih kodova za taj dan
+    const rowTotal=(()=>{
+      let sum=0;
+      Object.keys(CODE_LABELS).slice(0,12).forEach(k=>{
+        if(k==="II") sum+=totalH;
+        else sum+=parseFloat(dd.codes?.[k]||0)||0;
+      });
+      return Math.round(sum*10)/10||"";
+    })();
+    const totalCell=ws.getCell(ri,17);
+    totalCell.value=rowTotal;
+    const totalFill=rowFill||null;
+    const ts={alignment:{horizontal:"center",vertical:"middle"},border:allBorder,font:{bold:true,size:9,name:"Calibri",color:rowTotal>0?{argb:"FF1E293B"}:{argb:"FFCBD5E1"}}};
+    if(totalFill) ts.fill=totalFill;
+    totalCell.style=ts;
+  }
+
+  // ── Ukupno row ──
+  const tr=R(4+dc+1);
+  ws.getRow(tr).height=16;
+  const whiteFill={type:"pattern",pattern:"solid",fgColor:{argb:"FFFFFFFF"}};
+  const ukupnoHeaderStyle={font:{bold:true,size:9,color:{argb:"FF1E3A5F"},name:"Calibri"},fill:{type:"pattern",pattern:"solid",fgColor:{argb:"FF1E3A5F"}},border:allBorder,alignment:{horizontal:"left",vertical:"middle",indent:1}};
+
+  // Merge first 3 cols for "UKUPNO" label
+  ws.getCell(tr,1).value="UKUPNO";
+  ws.getCell(tr,1).style={...ukupnoHeaderStyle,font:{bold:true,size:9,color:{argb:"FFFFFFFF"},name:"Calibri"}};
+  ws.getCell(tr,2).style=ukupnoHeaderStyle;
+  ws.getCell(tr,3).style=ukupnoHeaderStyle;
+  ws.getCell(tr,4).style=ukupnoHeaderStyle;
+  try{ws.mergeCells(tr,1,tr,4);}catch(e){}
+
+  let grandTotal=0;
+  Object.keys(CODE_LABELS).slice(0,12).forEach((k,ci)=>{
+    let s=0;
+    for(let d=1;d<=dc;d++){
+      const dd=monthData[d]||emptyDay();
+      if(k==="II") s+=parseFloat(dd.codes?.II)||calcH(dd.start,dd.end)||0;
+      else s+=parseFloat(dd.codes?.[k]||0)||0;
+    }
+    grandTotal+=s;
+    const cell=ws.getCell(tr,5+ci);
+    cell.value=s||"";
+    // Ukupno row: bijela pozadina, plava boja za II, crvena za IX, sivo za ostalo
+    let fontC={size:9,bold:true,name:"Calibri",color:{argb:"FF94A3B8"}};
+    if(k==="II"&&s>0)  fontC={...fontC,color:{argb:"FF2563EB"}};
+    if(k==="IX"&&s>0)  fontC={...fontC,color:{argb:"FFDC2626"}};
+    cell.style={font:fontC,fill:whiteFill,border:allBorder,alignment:{horizontal:"center",vertical:"middle"}};
+  });
+  // Grand total cell
+  const gtCell=ws.getCell(tr,17);
+  gtCell.value=Math.round(grandTotal*10)/10||"";
+  gtCell.style={font:{bold:true,size:10,name:"Calibri",color:{argb:"FF1E293B"}},fill:whiteFill,border:allBorder,alignment:{horizontal:"center",vertical:"middle"}};
+
+  // Logo (samo za prvog zaposlenika, gore desno izvan tablice)
+  if(isFirst){
+    try{
+      const imgId=wb.addImage({base64:LOGO_B64,extension:"jpeg"});
+      ws.addImage(imgId,{tl:{col:18,row:startRow-1},br:{col:20,row:startRow+2},editAs:"oneCell"});
+    }catch(e){}
+  }
+  return tr+1;
+}
+async function exportSingle(empName,empTitle,year,month,monthData){
+  if(!window.ExcelJS){alert("ExcelJS se učitava...");return;}
+  try{const wb=new window.ExcelJS.Workbook();const ws=wb.addWorksheet("Evidencija");await fillSheet(ws,wb,empName,empTitle,year,month,monthData,true);const buf=await wb.xlsx.writeBuffer();const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([buf],{type:"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"}));a.download=`Radni_sati_${empName}_${MONTHS[month]}_${year}.xlsx`;a.click();}catch(e){alert("Greška: "+e.message);}
+}
+async function exportAll(year,month,allData,allEmployees){
+  if(!window.ExcelJS){alert("ExcelJS se učitava...");return;}
+  const emps=allEmployees||DEFAULT_EMPLOYEES;
+  try{const wb=new window.ExcelJS.Workbook();const ws=wb.addWorksheet(`Svi - ${MONTHS[month]} ${year}`);let row=1;for(let i=0;i<emps.length;i++){const emp=emps[i];const md=allData[`${emp.id}_${year}_${month}`]||{};row=await fillSheet(ws,wb,emp.name,emp.title,year,month,md,i===0,row);if(i<emps.length-1)row+=2;}const buf=await wb.xlsx.writeBuffer();const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([buf],{type:"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"}));a.download=`Radni_sati_SVI_${MONTHS[month]}_${year}.xlsx`;a.click();}catch(e){alert("Greška: "+e.message);}
+}
+
+// ── BarChart ───────────────────────────────────────────────────────────────────
+function BarChart({labels,datasets,height=240}){
+  const ref=useRef();const chartRef=useRef();
+  useEffect(()=>{
+    if(!ref.current||!window.Chart)return;
+    if(chartRef.current)chartRef.current.destroy();
+    chartRef.current=new window.Chart(ref.current,{type:"bar",data:{labels,datasets},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:"top",labels:{font:{family:"Calibri Light",size:11},color:"var(--text-secondary)"}}},scales:{x:{ticks:{font:{family:"Calibri Light",size:10},color:"var(--text-tertiary)",maxRotation:30},grid:{display:false}},y:{ticks:{font:{family:"Calibri Light",size:10},color:"var(--text-tertiary)"},grid:{color:"rgba(128,128,128,0.18)"},beginAtZero:true}}}});
+    return()=>{if(chartRef.current)chartRef.current.destroy();};
+  },[labels,datasets]);
+  return <canvas ref={ref} style={{height,width:"100%"}}/>;
+}
+
+// ── Avatar ─────────────────────────────────────────────────────────────────────
+function Avatar({emp,size=38,employees}){
+  const initials=getInitials(emp.name);
+  const bg=getAvatarColor(emp.id,employees);
+  return <div style={{width:size,height:size,borderRadius:"50%",background:bg,color:"#fff",display:"flex",alignItems:"center",justifyContent:"center",fontSize:size*0.36,fontWeight:700,flexShrink:0}}>{initials}</div>;
+}
+
+// ── Icons (inline SVG) ─────────────────────────────────────────────────────────
+const IconHome=()=><svg width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>;
+const IconUsers=()=><svg width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>;
+const IconClock=()=><svg width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>;
+const IconCalendar=()=><svg width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>;
+const IconReport=()=><svg width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>;
+const IconPlus=()=><svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>;
+const IconChevron=()=><svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>;
+const IconArrow=()=><svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>;
+const IconSun=()=><svg width="13" height="13" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>;
+const IconMoon=()=><svg width="13" height="13" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1111.2 3a7 7 0 009.8 9.8z"/></svg>;
+const IconAuto=()=><svg width="13" height="13" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="18" x2="12" y2="21"/></svg>;
+const IconTrend=()=><svg width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>;
+
+// ── Vrste unosa (kao u DYS CRM-u) ──────────────────────────────────────────────
+const ENTRY_TYPES=[
+  {v:"work",  code:"II",    label:"Radni dan",                        kind:"work"},
+  {v:"IV",    code:"IV",    label:"Prekovremeni rad",                 kind:"work"},
+  {v:"III",   code:"III",   label:"Rad noću",                         kind:"work"},
+  {v:"V",     code:"V",     label:"Smjenski rad",                     kind:"work"},
+  {v:"VI",    code:"VI",    label:"Rad nedjeljom / blagdanom",        kind:"work"},
+  {v:"XIII",  code:"XIII",  label:"Terenski rad",                     kind:"work"},
+  {v:"XIV",   code:"XIV",   label:"Pripravnost",                      kind:"work"},
+  {v:"I",     code:"I",     label:"Zastoj / prekid rada",             kind:"span"},
+  {v:"VII",   code:"VII",   label:"Godišnji odmor",                   kind:"abs"},
+  {v:"VIII",  code:"VIII",  label:"Blagdan (naknada plaće)",          kind:"abs"},
+  {v:"IX",    code:"IX",    label:"Bolovanje",                        kind:"abs"},
+  {v:"X",     code:"X",     label:"Plaćeni dopust",                   kind:"abs"},
+  {v:"XI",    code:"XI",    label:"Očinski dopust",                   kind:"abs"},
+  {v:"XII",   code:"XII",   label:"Neplaćeni dopust (osobna skrb)",   kind:"abs"},
+  {v:"XV",    code:"XV",    label:"Vojna obveza",                     kind:"abs"},
+  {v:"XVI",   code:"XVI",   label:"Nenazočnost na zahtjev radnika",   kind:"abs"},
+  {v:"XVII",  code:"XVII",  label:"Štrajk",                           kind:"abs"},
+  {v:"XVIII", code:"XVIII", label:"Lockout",                          kind:"abs"},
+  {v:"XIX",   code:"XIX",   label:"Nenazočnost (krivnja radnika)",    kind:"abs"},
+  {v:"XX",    code:"XX",    label:"Neplaćeni dopust (javne funkcije)",kind:"abs"},
+];
+const TYPE_BY_V=Object.fromEntries(ENTRY_TYPES.map(t=>[t.v,t]));
+const pad2=n=>String(n).padStart(2,"0");
+// Sati <-> HH:MM
+const hToTime=h=>{const n=parseFloat(h);if(isNaN(n))return"";const hh=Math.floor(n);const mm=Math.round((n-hh)*60);return pad2(Math.min(hh,23))+":"+pad2(mm===60?0:mm);};
+const timeToH=t=>{if(!t)return"";const p=String(t).split(":");const a=parseInt(p[0],10),b=parseInt(p[1]||"0",10);if(isNaN(a))return"";return String(Math.round((a+b/60)*100)/100);};
+const spanHours=(s,e)=>{const a=parseFloat(timeToH(s)),b=parseFloat(timeToH(e));if(isNaN(a)||isNaN(b))return 0;let d=b-a;if(d<0)d+=24;return Math.round(d*100)/100;};
+// Iz spremljenog dana pogodi vrstu unosa
+function guessType(dd){
+  const c=dd.codes||{};
+  const t=ENTRY_TYPES.find(t=>t.v!=="work"&&parseFloat(c[t.code])>0);
+  if(t&&!(dd.start||dd.end))return t.v;
+  if(t&&t.kind==="abs")return t.v;
+  return "work";
+}
+
+// ── Ikone obrasca ──────────────────────────────────────────────────────────────
+const IconX=()=><svg width="15" height="15" fill="none" stroke="currentColor" strokeWidth="2.2" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>;
+const IconCheck=()=><svg width="15" height="15" fill="none" stroke="currentColor" strokeWidth="2.6" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>;
+const IconTrash=()=><svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 01-2 2H8a2 2 0 01-2-2L5 6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2"/></svg>;
+const IconCaret=({open})=><svg width="13" height="13" fill="none" stroke="currentColor" strokeWidth="2.2" viewBox="0 0 24 24" style={{transform:open?"rotate(90deg)":"none",transition:"transform .18s"}}><polyline points="9 18 15 12 9 6"/></svg>;
+
+// ── Modal za unos ──────────────────────────────────────────────────────────────
+function DayModal({emp,day,month,year,dayData,onSave,onDelete,onClose,employees,onChangeEmp}){
+  const hadData=!!(dayData.start||dayData.end||Object.values(dayData.codes||{}).some(v=>v));
+  const isWE=IS_WEEKEND(year,month,day),isH=!!getHoliday(year,month,day);
+  const holName=getHoliday(year,month,day);
+
+  const [type,setType]=useState(()=>hadData?guessType(dayData):"work");
+  const [start,setStart]=useState(()=>{
+    if(dayData.start)return hToTime(dayData.start);
+    return (hadData||isWE||isH)?"":"08:00";
+  });
+  const [end,setEnd]=useState(()=>{
+    if(dayData.end)return hToTime(dayData.end);
+    return (hadData||isWE||isH)?"":"16:00";
+  });
+  const [note,setNote]=useState(dayData.note||"");
+  const [dan,setDan]=useState(day);
+  const [codes,setCodes]=useState({...(dayData.codes||{})});
+  const [advanced,setAdvanced]=useState(false);
+
+  const t=TYPE_BY_V[type]||TYPE_BY_V.work;
+  const usesSpan=t.kind==="work"||t.kind==="span";
+  const [sati,setSati]=useState(()=>{
+    const g=guessType(dayData);
+    const c=dayData.codes||{};
+    if(hadData&&TYPE_BY_V[g]&&TYPE_BY_V[g].kind==="abs")return String(parseFloat(c[TYPE_BY_V[g].code])||8);
+    return "8";
+  });
+
+  const autoH=usesSpan?spanHours(start,end):(parseFloat(sati)||0);
+  const dc=DAYS_IN_MONTH(year,month);
+  const dateStr=`${year}-${pad2(month+1)}-${pad2(dan)}`;
+
+  const prevType=useRef(hadData?guessType(dayData):"work");
+  const spremi=()=>{
+    const nc={...codes};
+    // Ako je vrsta unosa promijenjena, ukloni kod prethodne vrste
+    const prev=TYPE_BY_V[prevType.current];
+    if(prev&&prev.code!==t.code)delete nc[prev.code];
+    let s="",e="";
+    if(usesSpan){
+      s=timeToH(start);e=timeToH(end);
+      const h=spanHours(start,end);
+      nc[t.code]=h||"";
+      // Zastoj/prekid rada nije odrađeno radno vrijeme
+      nc.II=(t.kind==="span")?"":(h||"");
+    }else{
+      nc[t.code]=parseFloat(sati)||"";
+      nc.II="";
+    }
+    Object.keys(nc).forEach(k=>{if(nc[k]===""||nc[k]===null||nc[k]===undefined||parseFloat(nc[k])===0)delete nc[k];});
+    onSave({start:s,end:e,codes:nc,note:note||"",type:t.v},dan);
+  };
+
+  return(
+    <div className="unos-scrim" onMouseDown={ev=>{if(ev.target===ev.currentTarget)onClose();}}>
+      <div className="unos-sheet" onMouseDown={ev=>ev.stopPropagation()}>
+        <div className="unos-head">
+          <div style={{minWidth:0}}>
+            <div className="unos-title">{hadData?"Uredi unos":"Novi unos"}</div>
+            <div className="unos-sub">
+              {DAY_NAMES[DOW(year,month,dan)]}, {pad2(dan)}. {MONTHS[month]} {year}
+              {holName?" · 🇭🇷 "+holName:""}
+            </div>
+          </div>
+          <button className="unos-close" onClick={onClose} aria-label="Zatvori"><IconX/></button>
+        </div>
+
+        <div className="unos-body">
+          <div className="unos-grid">
+            <div className="unos-field">
+              <label className="unos-label">Djelatnik</label>
+              <select className="unos-select" value={emp.id}
+                onChange={ev=>onChangeEmp&&onChangeEmp(ev.target.value)}>
+                {(employees||[emp]).map(x=><option key={x.id} value={x.id}>{x.name} · {x.title}</option>)}
+              </select>
+            </div>
+            <div className="unos-field">
+              <label className="unos-label">Vrsta unosa</label>
+              <select className="unos-select" value={type} onChange={ev=>setType(ev.target.value)}>
+                {ENTRY_TYPES.map(x=><option key={x.v} value={x.v}>{x.label}</option>)}
+              </select>
+            </div>
+            <div className="unos-field">
+              <label className="unos-label">Datum</label>
+              <input className="unos-input" type="date" value={dateStr}
+                min={`${year}-${pad2(month+1)}-01`} max={`${year}-${pad2(month+1)}-${pad2(dc)}`}
+                onChange={ev=>{const d=parseInt((ev.target.value||"").split("-")[2],10);if(d>=1&&d<=dc)setDan(d);}}/>
+            </div>
+            <div className="unos-field">
+              <label className="unos-label">Napomena</label>
+              <input className="unos-input" type="text" value={note} placeholder="Projekt / opis (opcionalno)"
+                onChange={ev=>setNote(ev.target.value)}/>
+            </div>
+            {usesSpan?(
+              <div className="unos-pair">
+                <div className="unos-field">
+                  <label className="unos-label">Početak</label>
+                  <input className="unos-input" type="time" step="300" value={start} onChange={ev=>setStart(ev.target.value)}/>
+                </div>
+                <div className="unos-field">
+                  <label className="unos-label">Kraj</label>
+                  <input className="unos-input" type="time" step="300" value={end} onChange={ev=>setEnd(ev.target.value)}/>
+                </div>
+              </div>
+            ):(
+              <div className="unos-field">
+                <label className="unos-label">Broj sati</label>
+                <input className="unos-input" type="number" min="0" max="24" step="0.5" value={sati}
+                  onChange={ev=>setSati(ev.target.value)}/>
+              </div>
+            )}
+          </div>
+
+          <div className="unos-note">
+            <IconClock/>
+            <span>Obračun ({t.code}.): <strong>{autoH} {autoH===1?"sat":(autoH>=2&&autoH<5?"sata":"sati")}</strong></span>
+          </div>
+
+          <div className="unos-adv">
+            <button className="unos-adv-btn" onClick={()=>setAdvanced(a=>!a)}>
+              <IconCaret open={advanced}/> Napredno — svi kodovi (I.–XX.)
+            </button>
+            {advanced&&(
+              <React.Fragment>
+                <div style={{fontSize:11.5,color:"var(--text-tertiary)",marginTop:8,lineHeight:1.45}}>
+                  Vrijednosti upisane ovdje čuvaju se uz unos. Polja koja pokriva odabrana vrsta unosa
+                  bit će prepisana pri spremanju.
+                </div>
+                <div className="unos-codes">
+                  {Object.entries(CODE_LABELS).map(([k,label])=>(
+                    <div key={k} style={{background:"var(--surface-secondary)",borderRadius:10,padding:"8px 10px",border:k===t.code?"1px solid var(--c-blue-200)":"1px solid var(--border)"}}>
+                      <label style={{fontSize:10.5,color:k===t.code?"var(--c-blue-700)":"var(--text-tertiary)",display:"block",marginBottom:4,fontWeight:600}}>
+                        {k}. {label.length>34?label.substring(0,34)+"…":label}
+                      </label>
+                      <input type="number" min="0" value={codes[k]??""} placeholder="0"
+                        onChange={ev=>setCodes(c=>({...c,[k]:ev.target.value}))}
+                        style={{width:"100%",background:"var(--surface)",border:"1px solid var(--border)",borderRadius:7,padding:"6px 8px",color:"var(--text-primary)",fontSize:13,boxSizing:"border-box"}}/>
+                    </div>
+                  ))}
+                </div>
+              </React.Fragment>
+            )}
+          </div>
+        </div>
+
+        <div className="unos-foot">
+          {hadData&&(
+            <button onClick={onDelete}
+              style={{marginRight:"auto",background:"var(--red-light)",color:"var(--red)",border:"1px solid var(--c-red-200)",borderRadius:12,padding:"10px 16px",cursor:"pointer",fontWeight:600,fontSize:14,fontFamily:"var(--font)",display:"inline-flex",alignItems:"center",gap:6}}>
+              <IconTrash/> Obriši
+            </button>
+          )}
+          <button className="btn btn-outline" onClick={onClose}>Odustani</button>
+          <button className="btn btn-primary" onClick={spremi}><IconCheck/> Spremi</button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ── Početna stranica ───────────────────────────────────────────────────────────
+function PageHome({data,year,month,setPage,setSelectedEmp,openDayModal,employees}){
+  const now=new Date();
+  const dc=DAYS_IN_MONTH(year,month);
+
+  // Recent entries - gather last entered days across all employees
+  const recent=[];
+  employees.forEach(emp=>{
+    const md=data[`${emp.id}_${year}_${month}`]||{};
+    for(let d=dc;d>=1;d--){
+      const dd=md[d];
+      if(dd&&(dd.start||dd.end)){
+        const totalH=parseFloat(dd.codes?.II)||calcH(dd.start,dd.end)||0;
+        recent.push({emp,day:d,month,year,start:dd.start,end:dd.end,totalH});
+      }
+    }
+  });
+  recent.sort((a,b)=>b.day-a.day||(employees.findIndex(e=>e.id===b.emp.id)-employees.findIndex(e=>e.id===a.emp.id)));
+  const recentTop=recent.slice(0,8);
+
+  // Stats
+  let totalUnosi=0,totalSatiMj=0;
+  employees.forEach(emp=>{const md=data[`${emp.id}_${year}_${month}`]||{};for(let d=1;d<=dc;d++){const dd=md[d];if(dd&&(dd.start||dd.end)){totalUnosi++;totalSatiMj+=parseFloat(dd.codes?.II)||calcH(dd.start,dd.end)||0;}}});
+  let ukupnoSvi=0;
+  employees.forEach(emp=>{for(let m2=0;m2<12;m2++){const md=data[`${emp.id}_${year}_${m2}`]||{};const dc2=DAYS_IN_MONTH(year,m2);for(let d=1;d<=dc2;d++){const dd=md[d];if(dd&&(dd.start||dd.end))ukupnoSvi++;}}});
+
+  const kpi=[
+    {label:"Zaposlenici",value:employees.length,icon:<IconUsers/>,color:"var(--c-slate-200)",iconBg:"var(--c-slate-100)",textC:"var(--c-slate-900)"},
+    {label:"Ukupno unosa",value:ukupnoSvi,icon:<IconCalendar/>,color:"var(--c-slate-200)",iconBg:"var(--c-slate-100)",textC:"var(--c-slate-900)"},
+    {label:"Unosi ovaj mjesec",value:totalUnosi,icon:<IconClock/>,color:"var(--c-red-100)",iconBg:"var(--c-red-25)",textC:"var(--c-red-600)"},
+    {label:"Sati ovaj mjesec",value:Math.round(totalSatiMj),icon:<IconTrend/>,color:"var(--c-amber-100)",iconBg:"var(--c-amber-50)",textC:"var(--c-amber-600)"},
+  ];
+
+  const pad=n=>String(n).padStart(2,"0");
+
+  return(
+    <div className="page-enter">
+      <div style={{display:"flex",justifyContent:"space-between",alignItems:"flex-start",marginBottom:28}}>
+        <div>
+          <h1 style={{fontSize:26,fontWeight:700,color:"var(--text-primary)",marginBottom:4}}>Dobrodošli</h1>
+          <div style={{fontSize:14,color:"var(--text-tertiary)"}}>{MONTHS[month]} {year}</div>
+        </div>
+        <button className="btn btn-primary" onClick={()=>setPage("unos")} style={{display:"flex",alignItems:"center",gap:6,padding:"10px 20px",borderRadius:12}}>
+          <IconPlus/> Novi unos
+        </button>
+      </div>
+
+      {/* KPI */}
+      <div style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:16,marginBottom:28}}>
+        {kpi.map((k,i)=>(
+          <div key={i} style={{background:"var(--surface)",border:"1px solid var(--border)",borderRadius:18,padding:"20px 22px",display:"flex",justifyContent:"space-between",alignItems:"center",boxShadow:"var(--shadow-sm)"}}>
+            <div>
+              <div style={{fontSize:13,color:"var(--text-tertiary)",marginBottom:8}}>{k.label}</div>
+              <div style={{fontSize:28,fontWeight:700,color:k.textC,lineHeight:1}}>{k.value}</div>
+            </div>
+            <div style={{width:44,height:44,borderRadius:14,background:k.iconBg,border:`1px solid ${k.color}`,display:"flex",alignItems:"center",justifyContent:"center",color:k.textC}}>{k.icon}</div>
+          </div>
+        ))}
+      </div>
+
+      <div style={{display:"grid",gridTemplateColumns:"1fr 340px",gap:20}}>
+        {/* Recent entries */}
+        <div style={{background:"var(--surface)",border:"1px solid var(--border)",borderRadius:16,overflow:"hidden"}}>
+          <div style={{padding:"18px 22px",borderBottom:"1px solid var(--border)",display:"flex",justifyContent:"space-between",alignItems:"center"}}>
+            <div style={{fontWeight:700,fontSize:15,color:"var(--text-primary)"}}>Nedavni unosi</div>
+            <button onClick={()=>setPage("unos")} style={{background:"none",border:"none",color:"var(--text-tertiary)",cursor:"pointer",fontSize:13,display:"flex",alignItems:"center",gap:4}}>Vidi sve <IconArrow/></button>
+          </div>
+          {recentTop.length===0?(
+            <div style={{padding:"40px 22px",textAlign:"center",color:"var(--text-tertiary)",fontSize:14,letterSpacing:"-0.01em"}}>Nema unesenih sati za ovaj mjesec</div>
+          ):(
+            recentTop.map((r,i)=>(
+              <div key={i} onClick={()=>{setSelectedEmp(r.emp.id);openDayModal(r.day,r.emp.id);}}
+                style={{padding:"14px 22px",borderBottom:"1px solid var(--c-slate-50)",display:"flex",alignItems:"center",gap:14,cursor:"pointer",transition:"background .1s"}}
+                onMouseEnter={e=>e.currentTarget.style.background="var(--c-slate-50)"}
+                onMouseLeave={e=>e.currentTarget.style.background="var(--surface)"}>
+                <Avatar emp={r.emp} size={40} employees={employees}/>
+                <div style={{flex:1}}>
+                  <div style={{fontWeight:600,fontSize:14,color:"var(--text-primary)"}}>{r.emp.name.split(" ").slice(0,2).map(w=>w.charAt(0)+w.slice(1).toLowerCase()).join(" ")}</div>
+                  <div style={{fontSize:12,color:"var(--text-tertiary)",marginTop:1}}>{pad(r.day)}. {pad(r.month+1)}. {r.year}.</div>
+                </div>
+                <div style={{textAlign:"right"}}>
+                  <div style={{fontWeight:700,fontSize:15,color:"var(--text-primary)"}}>{r.totalH}h</div>
+                  <div style={{fontSize:11,color:"var(--text-tertiary)"}}>{pad(parseInt(r.start)||0)}:00 - {pad(parseInt(r.end)||0)}:00</div>
+                </div>
+              </div>
+            ))
+          )}
+        </div>
+
+        {/* Quick actions */}
+        <div style={{background:"var(--surface)",border:"1px solid var(--border)",borderRadius:16,padding:"18px 20px",height:"fit-content"}}>
+          <div style={{fontWeight:700,fontSize:15,color:"var(--text-primary)",marginBottom:16}}>Brze akcije</div>
+          {[
+            {icon:<IconUsers/>,label:"Upravljanje zaposlenicima",sub:"Pregled svih zaposlenika",page:"zaposlenici",c:"var(--c-slate-100)"},
+            {icon:<IconClock/>,label:"Unos radnih sati",sub:"Evidentiraj radno vrijeme",page:"unos",c:"var(--c-slate-100)"},
+            {icon:<IconCalendar/>,label:"Mjesečni pregled",sub:"Kalendarski prikaz",page:"pregled",c:"var(--c-slate-100)"},
+            {icon:<IconReport/>,label:"Izvještaji i izvoz",sub:"Excel izvoz podataka",page:"izvjestaji",c:"var(--c-slate-100)"},
+          ].map((a,i)=>(
+            <button key={i} onClick={()=>setPage(a.page)}
+              style={{width:"100%",background:"var(--surface)",border:"1px solid var(--border)",borderRadius:12,padding:"13px 14px",marginBottom:10,cursor:"pointer",display:"flex",alignItems:"center",gap:12,textAlign:"left",transition:"all .15s"}}
+              onMouseEnter={e=>{e.currentTarget.style.background="var(--c-slate-50)";e.currentTarget.style.borderColor="var(--c-slate-300)";}}
+              onMouseLeave={e=>{e.currentTarget.style.background="var(--surface)";e.currentTarget.style.borderColor="var(--border)";}}>
+              <div style={{width:36,height:36,borderRadius:9,background:"var(--surface-secondary)",display:"flex",alignItems:"center",justifyContent:"center",color:"var(--text-secondary)",flexShrink:0}}>{a.icon}</div>
+              <div>
+                <div style={{fontWeight:600,fontSize:13,color:"var(--text-primary)"}}>{a.label}</div>
+                <div style={{fontSize:11,color:"var(--text-tertiary)",marginTop:1}}>{a.sub}</div>
+              </div>
+            </button>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ── Zaposlenici ────────────────────────────────────────────────────────────────
+
+// ── Modal za zaposlenika ───────────────────────────────────────────────────────
+function EmployeeModal({employee,onSave,onDelete,onClose,isNew}){
+  const [vals,setVals]=useState({
+    name:employee?.name||"",
+    title:employee?.title||"",
+  });
+  const [err,setErr]=useState("");
+  const save=()=>{
+    if(!vals.name.trim()){setErr("Ime i prezime su obavezni.");return;}
+    if(!vals.title.trim()){setErr("Pozicija je obavezna.");return;}
+    const name=vals.name.trim().toUpperCase();
+    const title=vals.title.trim().toUpperCase();
+    const id=employee?.id||"emp_"+Date.now();
+    onSave({id,name,title});
+  };
+  return(
+    <div style={{position:"fixed",inset:0,background:"var(--scrim)",display:"flex",alignItems:"center",justifyContent:"center",zIndex:300,padding:16}}>
+      <div style={{background:"var(--surface)",borderRadius:16,padding:28,width:"100%",maxWidth:460,boxShadow:"var(--shadow-modal)",border:"1px solid var(--border)"}}>
+        <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:24}}>
+          <div style={{fontWeight:700,fontSize:17,color:"var(--text-primary)"}}>{isNew?"Novi zaposlenik":"Uredi zaposlenika"}</div>
+          <button onClick={onClose} style={{background:"var(--surface-secondary)",border:"none",borderRadius:8,width:32,height:32,cursor:"pointer",fontSize:16,color:"var(--text-secondary)",display:"flex",alignItems:"center",justifyContent:"center"}}>✕</button>
+        </div>
+        {/* Preview avatar */}
+        <div style={{display:"flex",justifyContent:"center",marginBottom:20}}>
+          <div style={{width:64,height:64,borderRadius:"50%",background:"var(--accent)",color:"var(--on-accent)",display:"flex",alignItems:"center",justifyContent:"center",fontSize:22,fontWeight:700}}>
+            {vals.name?getInitials(vals.name):"?"}
+          </div>
+        </div>
+        <div style={{marginBottom:14}}>
+          <label style={{fontSize:12,color:"var(--text-secondary)",display:"block",marginBottom:6,fontWeight:600}}>Ime i prezime *</label>
+          <input value={vals.name} onChange={e=>setVals(v=>({...v,name:e.target.value}))} placeholder="npr. IVAN HORVAT"
+            style={{width:"100%",background:"var(--bg)",border:"1px solid var(--border)",borderRadius:12,padding:"11px 14px",color:"var(--text-primary)",fontSize:14,boxSizing:"border-box"}}/>
+        </div>
+        <div style={{marginBottom:20}}>
+          <label style={{fontSize:12,color:"var(--text-secondary)",display:"block",marginBottom:6,fontWeight:600}}>Pozicija / radno mjesto *</label>
+          <input value={vals.title} onChange={e=>setVals(v=>({...v,title:e.target.value}))} placeholder="npr. PROGRAMER"
+            style={{width:"100%",background:"var(--bg)",border:"1px solid var(--border)",borderRadius:12,padding:"11px 14px",color:"var(--text-primary)",fontSize:14,boxSizing:"border-box"}}/>
+        </div>
+        {err&&<div style={{background:"var(--red-light)",border:"1px solid rgba(255,59,48,0.2)",borderRadius:8,padding:"8px 12px",marginBottom:14,fontSize:13,color:"var(--red)"}}>{err}</div>}
+        <div style={{display:"flex",gap:10}}>
+          <button onClick={save} className="btn btn-primary" style={{flex:1,fontSize:14,padding:"12px"}}>
+            {isNew?"➕ Dodaj zaposlenika":"💾 Spremi promjene"}
+          </button>
+          {!isNew&&onDelete&&(
+            <button onClick={onDelete} style={{background:"var(--red-light)",color:"var(--red)",border:"1px solid rgba(255,59,48,0.2)",borderRadius:8,padding:"12px 16px",cursor:"pointer",fontWeight:600,fontSize:13}}>
+              🗑 Ukloni
+            </button>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function PageZaposlenici({data,year,month,setPage,setSelectedEmp,employees,onSaveEmployee,onDeleteEmployee}){
+  const dc=DAYS_IN_MONTH(year,month);
+  const [modal,setModal]=useState(null); // null | {emp:null} (new) | {emp:empObj} (edit)
+  return(
+    <div className="page-enter">
+      <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:24}}>
+        <div>
+          <h2 style={{fontSize:22,fontWeight:700,color:"var(--text-primary)",letterSpacing:"-0.03em"}}>Zaposlenici</h2>
+          <div style={{fontSize:13,color:"var(--text-tertiary)",marginTop:2}}>{employees.length} aktivnih zaposlenika</div>
+        </div>
+        <button className="btn btn-primary" onClick={()=>setModal({emp:null})} style={{display:"flex",alignItems:"center",gap:6,padding:"10px 18px",borderRadius:12}}>
+          <IconPlus/> Novi zaposlenik
+        </button>
+      </div>
+      <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fill,minmax(280px,1fr))",gap:14}}>
+        {employees.map(emp=>{
+          const md=data[`${emp.id}_${year}_${month}`]||{};
+          let sati=0,dani=0;
+          for(let d=1;d<=dc;d++){const dd=md[d];if(dd&&(dd.start||dd.end)){dani++;sati+=parseFloat(dd.codes?.II)||calcH(dd.start,dd.end)||0;}}
+          return(
+            <div key={emp.id}
+              style={{background:"var(--surface)",border:"1px solid var(--border)",borderRadius:16,padding:"20px",transition:"all .15s",position:"relative"}}>
+              {/* Edit button */}
+              <button onClick={e=>{e.stopPropagation();setModal({emp});}}
+                style={{position:"absolute",top:12,right:12,background:"var(--surface-secondary)",border:"none",borderRadius:7,padding:"4px 8px",cursor:"pointer",fontSize:11,color:"var(--text-secondary)",fontWeight:600}}>✏ Uredi</button>
+              <div style={{display:"flex",alignItems:"center",gap:12,marginBottom:16,cursor:"pointer"}}
+                onClick={()=>{setSelectedEmp(emp.id);setPage("unos");}}>
+                <Avatar emp={emp} size={44} employees={employees}/>
+                <div>
+                  <div style={{fontWeight:700,fontSize:14,color:"var(--text-primary)"}}>{emp.name.split(" ").map(w=>w.charAt(0)+w.slice(1).toLowerCase()).join(" ")}</div>
+                  <div style={{fontSize:11,color:"var(--text-tertiary)",marginTop:2}}>{emp.title}</div>
+                </div>
+              </div>
+              <div style={{display:"flex",gap:10,cursor:"pointer"}} onClick={()=>{setSelectedEmp(emp.id);setPage("unos");}}>
+                <div style={{flex:1,background:"var(--bg)",borderRadius:8,padding:"8px 12px",textAlign:"center"}}>
+                  <div style={{fontSize:11,color:"var(--text-tertiary)"}}>Sati ({MONTHS[month].substring(0,3)})</div>
+                  <div style={{fontSize:18,fontWeight:700,color:"var(--accent)",marginTop:2}}>{Math.round(sati)}</div>
+                </div>
+                <div style={{flex:1,background:"var(--bg)",borderRadius:8,padding:"8px 12px",textAlign:"center"}}>
+                  <div style={{fontSize:11,color:"var(--text-tertiary)"}}>Dana uneseno</div>
+                  <div style={{fontSize:18,fontWeight:700,color:"var(--text-primary)",marginTop:2}}>{dani}</div>
+                </div>
+              </div>
+            </div>
+          );
+        })}
+        {/* Add new card */}
+        <div onClick={()=>setModal({emp:null})}
+          style={{background:"var(--surface-secondary)",border:"2px dashed var(--c-slate-200)",borderRadius:16,padding:"20px",cursor:"pointer",display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",minHeight:140,transition:"all .15s",gap:10}}
+          onMouseEnter={e=>{e.currentTarget.style.borderColor="var(--c-blue-600)";e.currentTarget.style.background="var(--c-blue-50)";}}
+          onMouseLeave={e=>{e.currentTarget.style.borderColor="var(--c-slate-200)";e.currentTarget.style.background="var(--c-neutral-50)";}}>
+          <div style={{width:40,height:40,borderRadius:"50%",background:"var(--c-slate-200)",display:"flex",alignItems:"center",justifyContent:"center",color:"var(--text-tertiary)"}}><IconPlus/></div>
+          <div style={{fontSize:13,color:"var(--text-tertiary)",fontWeight:600}}>Dodaj zaposlenika</div>
+        </div>
+      </div>
+      {modal!==null&&(
+        <EmployeeModal
+          employee={modal.emp}
+          isNew={!modal.emp}
+          onClose={()=>setModal(null)}
+          onSave={emp=>{onSaveEmployee(emp);setModal(null);}}
+          onDelete={modal.emp?()=>{onDeleteEmployee(modal.emp.id);setModal(null);}:null}
+        />
+      )}
+    </div>
+  );
+}
+
+// ── Unos sati (kalendar + tablica) ─────────────────────────────────────────────
+function PageUnos({data,year,month,setYear,setMonth,selectedEmp,setSelectedEmp,persist,excelReady,employees,initialDay,onConsumeInitial}){
+  const [view,setView]=useState("calendar");
+  const [editDay,setEditDay]=useState(null);
+  const [flash,setFlash]=useState(false);
+  useEffect(()=>{if(initialDay){setEditDay(initialDay);onConsumeInitial&&onConsumeInitial();}},[initialDay]);
+  const skey=`${selectedEmp}_${year}_${month}`;
+  const monthData=data[skey]||{};
+  const dc=DAYS_IN_MONTH(year,month);
+  const employee=employees.find(e=>e.id===selectedEmp)||employees[0];
+
+  const totals={};
+  Object.keys(CODE_LABELS).forEach(k=>{let s=0;for(let d=1;d<=dc;d++){const dd=monthData[d]||emptyDay();s+=k==="II"?(parseFloat(dd.codes?.II)||calcH(dd.start,dd.end)||0):(parseFloat(dd.codes?.[k]||0)||0);}totals[k]=s;});
+
+  const saveDay=(day,vals,newDay)=>{
+    const target=(newDay&&newDay!==day)?newDay:day;
+    const md={...monthData,[target]:vals};
+    if(target!==day) delete md[day];
+    const updated={...data,[skey]:md};
+    persist(updated);setEditDay(null);setFlash(true);setTimeout(()=>setFlash(false),1500);
+  };
+  const deleteDay=day=>{const updated={...data,[skey]:{...monthData}};delete updated[skey][day];persist(updated);setEditDay(null);};
+  const prevM=()=>{if(month===0){setMonth(11);setYear(y=>y-1);}else setMonth(m=>m-1);};
+  const nextM=()=>{if(month===11){setMonth(0);setYear(y=>y+1);}else setMonth(m=>m+1);};
+
+  return(
+    <div className="page-enter">
+      {/* Toolbar */}
+      <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:20,flexWrap:"wrap",gap:10}}>
+        <div style={{display:"flex",alignItems:"center",gap:10,flexWrap:"wrap"}}>
+          <div style={{display:"flex",alignItems:"center",gap:6,background:"var(--surface)",borderRadius:12,padding:"7px 12px",border:"1px solid var(--border)"}}>
+            <button onClick={prevM} style={{background:"none",border:"none",color:"var(--text-tertiary)",cursor:"pointer",fontSize:18,lineHeight:1,padding:"0 2px"}}>‹</button>
+            <span style={{fontWeight:700,fontSize:14,minWidth:140,textAlign:"center"}}>{MONTHS[month]} {year}</span>
+            <button onClick={nextM} style={{background:"none",border:"none",color:"var(--text-tertiary)",cursor:"pointer",fontSize:18,lineHeight:1,padding:"0 2px"}}>›</button>
+          </div>
+          <select value={selectedEmp} onChange={e=>setSelectedEmp(e.target.value)}
+            style={{background:"var(--surface)",color:"var(--text-primary)",border:"1px solid var(--border)",borderRadius:12,padding:"8px 12px",fontSize:13,fontWeight:600,cursor:"pointer",minWidth:240}}>
+            {employees.map(e=><option key={e.id} value={e.id}>{e.name} – {e.title}</option>)}
+          </select>
+          <div style={{display:"flex",background:"var(--surface-secondary)",borderRadius:12,padding:3,gap:2}}>
+            {["calendar","table"].map(v=>(
+              <button key={v} onClick={()=>setView(v)}
+                style={{padding:"6px 14px",border:"none",cursor:"pointer",fontSize:12,fontWeight:600,borderRadius:8,background:view===v?"var(--surface)":"transparent",color:view===v?"var(--c-slate-900)":"var(--c-slate-400)",boxShadow:view===v?"var(--shadow-sm)":"none",transition:"all .15s"}}>
+                {v==="calendar"?"📅 Kalendar":"📊 Tablica"}
+              </button>
+            ))}
+          </div>
+        </div>
+        <div style={{display:"flex",gap:8,alignItems:"center",flexWrap:"wrap"}}>
+          {flash&&<span style={{color:"var(--green)",fontSize:13,fontWeight:600}}>✓ Spremljeno</span>}
+          <button onClick={()=>{
+              const t=new Date();
+              const d=(t.getFullYear()===year&&t.getMonth()===month)?t.getDate():1;
+              setEditDay(d);
+            }} className="btn btn-primary" style={{fontSize:12}}><IconPlus/> Novi unos</button>
+          <button onClick={()=>exportSingle(employee.name,employee.title,year,month,monthData)} disabled={!excelReady}
+            className="btn btn-outline" style={{opacity:excelReady?1:.5,fontSize:12}}>⬇ Export radnik</button>
+          <button onClick={()=>exportAll(year,month,data,employees)} disabled={!excelReady}
+            className="btn btn-primary" style={{opacity:excelReady?1:.5,fontSize:12}}>⬇ Export svi</button>
+        </div>
+      </div>
+
+      {/* Summary strip */}
+      <div style={{display:"flex",gap:10,marginBottom:18,flexWrap:"wrap"}}>
+        {[{k:"II",l:"Ukupno sati",c:"var(--c-blue-600)"},{k:"IV",l:"Prekovremeni",c:"var(--c-amber-600)"},{k:"VII",l:"Godišnji odmor",c:"var(--c-green-600)"},{k:"IX",l:"Bolovanje",c:"var(--c-red-600)"},{k:"X",l:"Plaćeni dopust",c:"var(--c-violet-600)"}]
+         .map(it=>(
+          <div key={it.k} style={{background:"var(--surface)",border:"1px solid var(--border)",padding:"10px 16px",minWidth:110,borderTop:`3px solid ${it.c}`,borderRadius:14,overflow:"hidden"}}>
+            <div style={{fontSize:10,color:"var(--text-tertiary)",marginBottom:3}}>{it.l}</div>
+            <div style={{fontSize:22,fontWeight:700,color:it.c}}>{totals[it.k]||0}</div>
+          </div>
+        ))}
+      </div>
+
+      {/* Calendar */}
+      {view==="calendar"&&(
+        <div style={{background:"var(--surface)",border:"1px solid var(--border)",borderRadius:16,padding:16}}>
+          <div style={{display:"grid",gridTemplateColumns:"repeat(7,1fr)",marginBottom:8}}>
+            {["Pon","Uto","Sri","Čet","Pet","Sub","Ned"].map(d=>(
+              <div key={d} style={{textAlign:"center",fontSize:11,fontWeight:600,color:"var(--text-tertiary)",padding:"5px 0"}}>{d}</div>
+            ))}
+          </div>
+          <div style={{display:"grid",gridTemplateColumns:"repeat(7,1fr)",gap:4}}>
+            {Array.from({length:(DOW(year,month,1)+6)%7}).map((_,i)=><div key={`e${i}`}/>)}
+            {Array.from({length:dc},(_,i)=>i+1).map(day=>{
+              const dd=monthData[day]||emptyDay();
+              const isSat=IS_SAT(year,month,day),isSun=IS_SUN(year,month,day);
+              const holName=getHoliday(year,month,day),isHol=!!holName;
+              const totalH=parseFloat(dd.codes?.II)||calcH(dd.start,dd.end)||0;
+              const hasData=dd.start||dd.end||Object.values(dd.codes||{}).some(v=>v);
+              const ac=["III","IV","VI","VII","IX","X"].find(k=>parseFloat(dd.codes?.[k])>0);
+              let bg="var(--c-neutral-50)",border="var(--c-slate-100)",dayCol="var(--c-slate-500)",stripe=null,textMuted="var(--c-slate-400)";
+              if(isSat){bg="var(--c-amber-50)";border="var(--c-amber-200)";dayCol="var(--c-amber-600)";stripe="var(--c-amber-500)";textMuted="var(--c-amber-500)";}
+              if(isSun){bg="var(--c-red-50)";border="var(--c-red-200)";dayCol="var(--c-red-600)";stripe="var(--c-red-500)";textMuted="var(--c-red-500)";}
+              if(isHol){bg="var(--c-violet-50)";border="var(--c-violet-200)";dayCol="var(--c-violet-600)";stripe="var(--c-violet-500)";textMuted="var(--c-violet-500)";}
+              if(hasData&&totalH>0&&!isSat&&!isSun&&!isHol){bg="var(--c-blue-50)";border="var(--c-blue-200)";}
+              if(ac==="IX"){bg="var(--c-red-50)";border="var(--c-red-200)";}
+              if(ac==="VII"){bg="var(--c-green-50)";border="var(--c-green-200)";}
+              const today=new Date();
+              const isToday=today.getFullYear()===year&&today.getMonth()===month&&today.getDate()===day;
+              return(
+                <div key={day} onClick={()=>setEditDay(day)}
+                  style={{background:bg,border:`1px solid ${isToday?"var(--c-blue-600)":border}`,borderRadius:12,cursor:"pointer",minHeight:76,overflow:"hidden",transition:"all .12s",position:"relative"}}
+                  onMouseEnter={e=>{e.currentTarget.style.borderColor="var(--c-blue-600)";e.currentTarget.style.boxShadow="0 2px 10px var(--accent-light)";}}
+                  onMouseLeave={e=>{e.currentTarget.style.borderColor=isToday?"var(--c-blue-600)":border;e.currentTarget.style.boxShadow="none";}}>
+                  {stripe&&<div style={{height:3,background:stripe,borderRadius:"10px 10px 0 0"}}/>}
+                  <div style={{padding:"6px 8px 8px"}}>
+                    <div style={{display:"flex",justifyContent:"space-between",marginBottom:3}}>
+                      <span style={{fontSize:13,fontWeight:700,color:isToday?"var(--c-blue-600)":dayCol,background:isToday?"var(--c-blue-100)":"transparent",borderRadius:4,padding:"0 3px"}}>{day}</span>
+                      <span style={{fontSize:9,color:textMuted,opacity:.6}}>{DAY_NAMES[DOW(year,month,day)]}</span>
+                    </div>
+                    {isHol&&<div style={{fontSize:8,color:"var(--purple)",fontWeight:600,marginBottom:2,overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}}>🇭🇷 {holName}</div>}
+                    {hasData&&<>
+                      {(dd.start||dd.end)&&<div style={{fontSize:10,color:"var(--text-secondary)",marginBottom:1}}>{dd.start||"—"}–{dd.end||"—"}h</div>}
+                      {totalH>0&&<div style={{fontSize:14,fontWeight:700,color:"var(--accent)"}}>{totalH}h</div>}
+                      {ac&&<div style={{fontSize:9,color:ac==="IX"?"var(--c-red-600)":ac==="VII"?"var(--c-green-600)":"var(--c-amber-600)",fontWeight:700}}>{ac}. {parseFloat(dd.codes[ac])}h</div>}
+                      {dd.note&&<div title={dd.note} style={{fontSize:9,color:"var(--text-tertiary)",marginTop:2,overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}}>{dd.note}</div>}
+                    </>}
+                    {!hasData&&!isSat&&!isSun&&!isHol&&<div style={{fontSize:10,color:"var(--text-tertiary)",marginTop:4}}>+ unos</div>}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+          {/* Legend */}
+          <div style={{display:"flex",gap:14,marginTop:14,flexWrap:"wrap",alignItems:"center",paddingTop:12,borderTop:"1px solid var(--border)"}}>
+            <span style={{fontSize:11,color:"var(--text-tertiary)",fontWeight:700}}>LEGENDA:</span>
+            {[{c:"var(--c-amber-500)",l:"Subota"},{c:"var(--c-red-500)",l:"Nedjelja"},{c:"var(--c-violet-500)",l:"Državni praznik"},{c:"var(--c-blue-600)",l:"Radni dan s unosom"}]
+             .map(it=>(
+              <div key={it.l} style={{display:"flex",alignItems:"center",gap:5}}>
+                <div style={{width:12,height:12,borderRadius:3,background:"transparent",border:`2px solid ${it.c}`,overflow:"hidden",position:"relative"}}>
+                  <div style={{position:"absolute",top:0,left:0,right:0,height:3,background:it.c}}/>
+                </div>
+                <span style={{fontSize:11,color:"var(--text-secondary)"}}>{it.l}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Table */}
+      {view==="table"&&(
+        <div style={{background:"var(--surface)",borderRadius:16,border:"1px solid var(--border)",overflow:"hidden"}}>
+          <div style={{overflowX:"auto"}}>
+            <table style={{width:"100%",borderCollapse:"collapse",fontSize:12}}>
+              <thead>
+                <tr style={{background:"var(--bg)"}}>
+                  <th style={{padding:"10px 12px",textAlign:"left",color:"var(--text-secondary)",fontWeight:700,borderBottom:"1px solid var(--border)",minWidth:70}}>Dan</th>
+                  <th style={{padding:"10px 8px",textAlign:"center",color:"var(--text-secondary)",fontWeight:700,borderBottom:"1px solid var(--border)"}}>Početak</th>
+                  <th style={{padding:"10px 8px",textAlign:"center",color:"var(--text-secondary)",fontWeight:700,borderBottom:"1px solid var(--border)"}}>Završetak</th>
+                  {Object.keys(CODE_LABELS).map(k=>(
+                    <th key={k} title={CODE_LABELS[k]} style={{padding:"10px 5px",textAlign:"center",color:k==="II"?"var(--c-blue-600)":"var(--c-slate-600)",fontWeight:700,borderBottom:"1px solid var(--border)",minWidth:32}}>{k}.</th>
+                  ))}
+                  <th style={{padding:"10px 8px",borderBottom:"1px solid var(--border)"}}/>
+                </tr>
+              </thead>
+              <tbody>
+                {Array.from({length:dc},(_,i)=>i+1).map(day=>{
+                  const dd=monthData[day]||emptyDay();
+                  const isSat=IS_SAT(year,month,day),isSun=IS_SUN(year,month,day),isHol=!!getHoliday(year,month,day);
+                  const totalH=parseFloat(dd.codes?.II)||calcH(dd.start,dd.end)||0;
+                  let rowBg="transparent",dayCol="var(--c-slate-900)",lBorder="4px solid transparent";
+                  if(isSat){rowBg="var(--c-amber-50)";dayCol="var(--c-amber-600)";lBorder="4px solid var(--c-amber-500)";}
+                  if(isSun){rowBg="var(--c-red-50)";dayCol="var(--c-red-600)";lBorder="4px solid var(--c-red-500)";}
+                  if(isHol){rowBg="var(--c-violet-50)";dayCol="var(--c-violet-600)";lBorder="4px solid var(--c-violet-500)";}
+                  return(
+                    <tr key={day} style={{background:rowBg,borderBottom:"1px solid var(--c-slate-50)",borderLeft:lBorder}}
+                      onMouseEnter={e=>e.currentTarget.style.background="var(--c-sky-50)"}
+                      onMouseLeave={e=>e.currentTarget.style.background=rowBg}>
+                      <td style={{padding:"7px 12px",fontWeight:700,color:dayCol}}>
+                        {day}. <span style={{fontSize:10,color:dayCol,opacity:.6,fontWeight:400}}>{DAY_NAMES[DOW(year,month,day)]}</span>
+                        {isHol&&<span style={{fontSize:9,color:"var(--purple)",marginLeft:3}}>🇭🇷</span>}
+                      </td>
+                      <td style={{padding:"7px 5px",textAlign:"center",color:"var(--text-secondary)"}}>{dd.start||""}</td>
+                      <td style={{padding:"7px 5px",textAlign:"center",color:"var(--text-secondary)"}}>{dd.end||""}</td>
+                      {Object.keys(CODE_LABELS).map(k=>(
+                        <td key={k} style={{padding:"7px 5px",textAlign:"center",color:k==="II"?(totalH>0?"var(--c-blue-600)":"var(--c-slate-300)"):"var(--c-slate-500)",fontWeight:k==="II"?700:400}}>
+                          {k==="II"?(totalH>0?totalH:""):(dd.codes?.[k]||"")}
+                        </td>
+                      ))}
+                      <td style={{padding:"7px 8px"}}>
+                        <button onClick={()=>setEditDay(day)} style={{background:"var(--surface-secondary)",border:"none",color:"var(--text-secondary)",borderRadius:6,padding:"3px 8px",cursor:"pointer",fontSize:12}}>✏</button>
+                      </td>
+                    </tr>
+                  );
+                })}
+                <tr style={{background:"var(--accent-light)",borderTop:"2px solid var(--c-blue-200)"}}>
+                  <td colSpan={3} style={{padding:"10px 12px",fontWeight:700,color:"var(--accent)"}}>UKUPNO</td>
+                  {Object.keys(CODE_LABELS).map(k=>(
+                    <td key={k} style={{padding:"10px 5px",textAlign:"center",fontWeight:700,color:totals[k]>0?"var(--c-blue-700)":"var(--c-slate-300)"}}>{totals[k]>0?totals[k]:""}</td>
+                  ))}
+                  <td/>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      )}
+
+      {editDay!==null&&(
+        <DayModal key={selectedEmp+"_"+editDay} emp={employee} day={editDay} month={month} year={year}
+          dayData={monthData[editDay]||emptyDay()}
+          employees={employees} onChangeEmp={setSelectedEmp}
+          onSave={(v,nd)=>saveDay(editDay,v,nd)} onDelete={()=>deleteDay(editDay)} onClose={()=>setEditDay(null)}/>
+      )}
+    </div>
+  );
+}
+
+// ── Pregled (dashboard) ────────────────────────────────────────────────────────
+function PagePregled({data,year,month,setYear,setMonth,employees}){
+  const prevM=()=>{if(month===0){setMonth(11);setYear(y=>y-1);}else setMonth(m=>m-1);};
+  const nextM=()=>{if(month===11){setMonth(0);setYear(y=>y+1);}else setMonth(m=>m+1);};
+  const dc=DAYS_IN_MONTH(year,month);
+  const empStats=employees.map(emp=>{
+    const md=data[`${emp.id}_${year}_${month}`]||{};
+    const get=k=>{let s=0;for(let d=1;d<=dc;d++){const dd=md[d]||emptyDay();s+=k==="II"?(parseFloat(dd.codes?.II)||calcH(dd.start,dd.end)||0):(parseFloat(dd.codes?.[k]||0)||0);}return Math.round(s*10)/10;};
+    return{...emp,II:get("II"),IV:get("IV"),VII:get("VII"),IX:get("IX"),X:get("X"),III:get("III"),VI:get("VI")};
+  });
+  // Full name helper: "KARLO ĐUDERIJA" → "Karlo Đuderija"
+  const fullName=name=>name.split(" ").map(w=>w.charAt(0)+w.slice(1).toLowerCase()).join(" ");
+  return(
+    <div className="page-enter">
+      <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:24,flexWrap:"wrap",gap:10}}>
+        <div><h2 style={{fontSize:22,fontWeight:700,color:"var(--text-primary)",letterSpacing:"-0.03em"}}>Mjesečni pregled</h2><div style={{fontSize:13,color:"var(--text-tertiary)",marginTop:2}}>Statistike za sve zaposlenike</div></div>
+        <div style={{display:"flex",alignItems:"center",gap:8,background:"var(--surface)",borderRadius:12,padding:"7px 14px",border:"1px solid var(--border)"}}>
+          <button onClick={prevM} style={{background:"none",border:"none",color:"var(--text-tertiary)",cursor:"pointer",fontSize:18,lineHeight:1}}>‹</button>
+          <span style={{fontWeight:700,fontSize:14,minWidth:140,textAlign:"center"}}>{MONTHS[month]} {year}</span>
+          <button onClick={nextM} style={{background:"none",border:"none",color:"var(--text-tertiary)",cursor:"pointer",fontSize:18,lineHeight:1}}>›</button>
+        </div>
+      </div>
+      {/* Table only */}
+      <div className="card" style={{padding:0,overflow:"hidden"}}>
+        <div style={{padding:"16px 20px",borderBottom:"1px solid var(--border)",display:"flex",justifyContent:"space-between",alignItems:"center"}}>
+          <div style={{fontWeight:700,fontSize:14,color:"var(--text-primary)"}}>Detalji po zaposleniku — {MONTHS[month]} {year}</div>
+          <div style={{fontSize:12,color:"var(--text-tertiary)"}}>{employees.length} zaposlenika</div>
+        </div>
+        <div style={{overflowX:"auto"}}>
+          <table style={{width:"100%",borderCollapse:"collapse",fontSize:13}}>
+            <thead><tr style={{background:"var(--bg)"}}>
+              {["Zaposlenik","Pozicija","Ukupno sati","Prekovremeni","Noćni rad","Godišnji","Bolovanje","Pl. dopust"].map((h,i)=>(
+                <th key={i} style={{padding:"12px 16px",textAlign:i<2?"left":"center",color:"var(--text-secondary)",fontWeight:700,borderBottom:"1px solid var(--border)",whiteSpace:"nowrap",fontSize:12,textTransform:"uppercase",letterSpacing:.3}}>{h}</th>
+              ))}
+            </tr></thead>
+            <tbody>
+              {empStats.map((e,i)=>(
+                <tr key={e.id} style={{borderBottom:"1px solid var(--border)",background:"var(--surface)"}}
+                  onMouseEnter={ev=>ev.currentTarget.style.background="var(--c-slate-50)"}
+                  onMouseLeave={ev=>ev.currentTarget.style.background="var(--surface)"}>
+                  <td style={{padding:"12px 16px"}}>
+                    <div style={{display:"flex",alignItems:"center",gap:12}}>
+                      <Avatar emp={e} size={34} employees={employees}/>
+                      <span style={{fontWeight:600,color:"var(--text-primary)",fontSize:14}}>{fullName(e.name)}</span>
+                    </div>
+                  </td>
+                  <td style={{padding:"12px 16px",color:"var(--text-tertiary)",fontSize:11,textTransform:"uppercase",letterSpacing:.3}}>{e.title}</td>
+                  {[e.II,e.IV,e.III,e.VII,e.IX,e.X].map((v,vi)=>{
+                    const colors=["var(--c-blue-600)","var(--c-amber-600)","var(--c-indigo-500)","var(--c-green-600)","var(--c-red-600)","var(--c-violet-600)"];
+                    return <td key={vi} style={{padding:"12px 16px",textAlign:"center",color:v>0?colors[vi]:"var(--c-slate-300)",fontWeight:v>0?700:400,fontSize:14}}>{v||"—"}</td>;
+                  })}
+                </tr>
+              ))}
+              <tr style={{background:"var(--accent-light)",borderTop:"2px solid var(--c-blue-200)"}}>
+                <td colSpan={2} style={{padding:"13px 16px",fontWeight:700,color:"var(--accent)",fontSize:13}}>UKUPNO</td>
+                {[empStats.reduce((a,e)=>a+e.II,0),empStats.reduce((a,e)=>a+e.IV,0),empStats.reduce((a,e)=>a+e.III,0),empStats.reduce((a,e)=>a+e.VII,0),empStats.reduce((a,e)=>a+e.IX,0),empStats.reduce((a,e)=>a+e.X,0)]
+                 .map((v,i)=><td key={i} style={{padding:"13px 16px",textAlign:"center",fontWeight:700,color:v>0?"var(--c-blue-700)":"var(--c-slate-300)",fontSize:14}}>{v||"—"}</td>)}
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ── Izvještaji ─────────────────────────────────────────────────────────────────
+function PageIzvjestaji({data,year,month,excelReady,employees}){
+  return(
+    <div className="page-enter">
+      <div style={{marginBottom:24}}><h2 style={{fontSize:22,fontWeight:700,color:"var(--text-primary)",letterSpacing:"-0.03em"}}>Izvještaji i izvoz</h2><div style={{fontSize:13,color:"var(--text-tertiary)",marginTop:2}}>Preuzimanje podataka u Excel formatu</div></div>
+      <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:16}}>
+        {employees.map(emp=>{
+          const md=data[`${emp.id}_${year}_${month}`]||{};
+          const dc=DAYS_IN_MONTH(year,month);
+          let sati=0;for(let d=1;d<=dc;d++){const dd=md[d];if(dd)sati+=parseFloat(dd.codes?.II)||calcH(dd.start,dd.end)||0;}
+          return(
+            <div key={emp.id} className="card" style={{display:"flex",alignItems:"center",justifyContent:"space-between"}}>
+              <div style={{display:"flex",alignItems:"center",gap:12}}>
+                <Avatar emp={emp} size={38}/>
+                <div>
+                  <div style={{fontWeight:600,fontSize:13,color:"var(--text-primary)"}}>{emp.name.split(" ").map(w=>w.charAt(0)+w.slice(1).toLowerCase()).join(" ")}</div>
+                  <div style={{fontSize:11,color:"var(--text-tertiary)"}}>{emp.title} · {Math.round(sati)}h {MONTHS[month]}</div>
+                </div>
+              </div>
+              <button onClick={()=>exportSingle(emp.name,emp.title,year,month,md)} disabled={!excelReady}
+                className="btn btn-outline" style={{fontSize:12,opacity:excelReady?1:.5}}>⬇ Export</button>
+            </div>
+          );
+        })}
+      </div>
+      <div className="card" style={{marginTop:16,display:"flex",alignItems:"center",justifyContent:"space-between"}}>
+        <div>
+          <div style={{fontWeight:700,fontSize:15,color:"var(--text-primary)"}}>Export svih zaposlenika</div>
+          <div style={{fontSize:12,color:"var(--text-tertiary)",marginTop:3}}>Jedan Excel file — svi zaposlenici, {MONTHS[month]} {year}</div>
+        </div>
+        <button onClick={()=>exportAll(year,month,data,employees)} disabled={!excelReady}
+          className="btn btn-primary" style={{fontSize:13,opacity:excelReady?1:.5}}>⬇ Export sve ({employees.length} zaposlenika)</button>
+      </div>
+    </div>
+  );
+}
+
+// ── Main App ───────────────────────────────────────────────────────────────────
+function App({session,onSignOut}){
+  const excelReady=!!window.ExcelJS;
+  const [xlReady,setXlReady]=useState(excelReady);
+  useEffect(()=>{if(!window.ExcelJS){const s=document.createElement("script");s.src="https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.4.0/exceljs.min.js";s.onload=()=>setXlReady(true);document.head.appendChild(s);}else setXlReady(true);},[]);
+
+  const now=new Date();
+  const [year,setYear]=useState(now.getFullYear());
+  const [month,setMonth]=useState(now.getMonth());
+  const [employees,setEmployees]=useState(()=>lsLoadEmps());
+  const [selectedEmp,setSelectedEmp]=useState(()=>{const e=lsLoadEmps();return e[0]?.id||DEFAULT_EMPLOYEES[0].id;});
+  const [data,setData]=useState(()=>lsLoad());
+  const [page,setPage]=useState("home");
+  const [editDayModal,setEditDayModal]=useState(null);
+  const [menuOpen,setMenuOpen]=useState(false);
+  const [sync,setSync]=useState("idle");   // idle | run | ok | err
+  const [syncMsg,setSyncMsg]=useState("");
+  const [cloudEmpty,setCloudEmpty]=useState(false);
+  const [theme,setTheme]=useState(()=>{try{return localStorage.getItem(LS_THEME)||"system"}catch{return"system"}});
+
+  useEffect(()=>{
+    applyTheme(theme);
+    try{localStorage.setItem(LS_THEME,theme)}catch{}
+    if(theme!=="system"||!window.matchMedia)return;
+    const mq=window.matchMedia("(prefers-color-scheme: dark)");
+    const h=()=>applyTheme("system");
+    mq.addEventListener?mq.addEventListener("change",h):mq.addListener(h);
+    return()=>{mq.removeEventListener?mq.removeEventListener("change",h):mq.removeListener(h);};
+  },[theme]);
+
+
+  const runSync=useCallback(async fn=>{
+    setSync("run");setSyncMsg("");
+    try{await fn();setSync("ok");}
+    catch(e){
+      console.error(e);
+      setSync("err");
+      const raw=e?.message||String(e);
+      setSyncMsg(/issued at future|PGRST303/i.test(raw)
+        ? "Sat računala nije usklađen s poslužiteljem. Uskladite vrijeme na računalu pa pokušajte ponovno."
+        : raw);
+    }
+  },[]);
+
+  // Povlačenje s poslužitelja pri pokretanju
+  const pull=useCallback(async()=>{
+    const r=await cloudLoad();
+    const hasEmps=r.employees.length>0;
+    const hasData=Object.keys(r.data).length>0;
+    if(hasEmps){
+      setEmployees(r.employees);lsSaveEmps(r.employees);
+      setSelectedEmp(cur=>r.employees.some(e=>e.id===cur)?cur:r.employees[0].id);
+    }
+    if(hasData){setData(r.data);lsSave(r.data);}
+    setCloudEmpty(!hasEmps&&!hasData);
+  },[]);
+
+  useEffect(()=>{runSync(pull);},[runSync,pull]);
+
+  // Prijenos lokalnih podataka na poslužitelj (jednokratno)
+  const handleMigrate=()=>runSync(async()=>{
+    await cloudSaveEmps(employees);
+    await cloudSaveKeys(data,Object.keys(data));
+    setCloudEmpty(false);
+  });
+
+  const dataRef=useRef(data);
+  useEffect(()=>{dataRef.current=data;},[data]);
+
+  const persist=useCallback(nd=>{
+    const prev=dataRef.current||{};
+    const changed=Object.keys(nd).filter(k=>JSON.stringify(nd[k])!==JSON.stringify(prev[k]));
+    dataRef.current=nd;
+    setData(nd);
+    lsSave(nd);
+    if(changed.length)runSync(()=>cloudSaveKeys(nd,changed));
+  },[runSync]);
+
+  const handleExportJSON=()=>{
+    const backup={data,employees,exportedAt:new Date().toISOString(),version:"dys_v2"};
+    const blob=new Blob([JSON.stringify(backup,null,2)],{type:"application/json"});
+    const a=document.createElement("a");
+    a.href=URL.createObjectURL(blob);
+    const now=new Date();
+    a.download=`radni-sati-podaci_${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,"0")}-${String(now.getDate()).padStart(2,"0")}.json`;
+    a.click();
+  };
+
+  const handleImportJSON=(e)=>{
+    const file=e.target.files?.[0];
+    if(!file)return;
+    const reader=new FileReader();
+    reader.onload=(ev)=>{
+      try{
+        const backup=JSON.parse(ev.target.result);
+        if(backup.data){persist(backup.data);}
+        if(backup.employees&&Array.isArray(backup.employees)){
+          setEmployees(backup.employees);
+          lsSaveEmps(backup.employees);
+        }
+        alert("✅ Podaci su uspješno učitani!");
+      }catch(err){
+        alert("❌ Greška pri čitanju datoteke. Provjerite je li datoteka ispravna.");
+      }
+    };
+    reader.readAsText(file);
+    e.target.value="";
+  };
+
+  const saveEmployee=useCallback(emp=>{
+    setEmployees(prev=>{
+      const idx=prev.findIndex(e=>e.id===emp.id);
+      const updated=idx>=0?prev.map(e=>e.id===emp.id?emp:e):[...prev,emp];
+      lsSaveEmps(updated);
+      runSync(()=>cloudSaveEmps(updated));
+      return updated;
+    });
+  },[runSync]);
+
+  const deleteEmployee=useCallback(id=>{
+    setEmployees(prev=>{
+      const updated=prev.filter(e=>e.id!==id);
+      lsSaveEmps(updated);
+      if(selectedEmp===id&&updated.length>0) setSelectedEmp(updated[0].id);
+      runSync(()=>cloudDeleteEmp(id));
+      return updated;
+    });
+  },[selectedEmp,runSync]);
+
+  const openDayModal=(day,empId)=>{setSelectedEmp(empId||selectedEmp);setEditDayModal({day,empId:empId||selectedEmp});setPage("unos");setMenuOpen(false);};
+
+  const navItems=[
+    {id:"home",label:"Početna",icon:<IconHome/>},
+    {id:"zaposlenici",label:"Zaposlenici",icon:<IconUsers/>},
+    {id:"unos",label:"Unos sati",icon:<IconClock/>},
+    {id:"pregled",label:"Mjesečni pregled",icon:<IconCalendar/>},
+    {id:"izvjestaji",label:"Izvještaji",icon:<IconReport/>},
+  ];
+
+  return(
+    <div style={{display:"flex",minHeight:"100vh",background:"var(--bg)"}}>
+      {/* Gumb izbornika — vidljiv samo na mobitelu */}
+      <button className="dys-burger" onClick={()=>setMenuOpen(o=>!o)} aria-label={menuOpen?"Zatvori izbornik":"Otvori izbornik"}>
+        {menuOpen
+          ? <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          : <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>}
+      </button>
+      {menuOpen&&<div className="dys-overlay" onClick={()=>setMenuOpen(false)}/>}
+
+      {/* Sidebar — Apple macOS style */}
+      <div className={"dys-sidebar"+(menuOpen?" open":"")} style={{width:228,background:"var(--sidebar-bg)",backdropFilter:"blur(24px)",WebkitBackdropFilter:"blur(24px)",borderRight:"1px solid var(--border)",display:"flex",flexDirection:"column",flexShrink:0,position:"fixed",top:0,left:0,bottom:0,zIndex:100}}>
+        <div style={{padding:"24px 18px 14px"}}>
+          <div style={{fontWeight:700,fontSize:16,color:"var(--text-primary)",letterSpacing:"-0.025em"}}>dotyourspot</div>
+          <div style={{marginTop:10}}>
+            <select value={year} onChange={e=>setYear(Number(e.target.value))}
+              style={{background:"var(--hover)",border:"1px solid var(--border)",borderRadius:8,fontSize:12,color:"var(--text-secondary)",cursor:"pointer",fontWeight:500,padding:"4px 10px",fontFamily:"var(--font)"}}>
+              {[2023,2024,2025,2026,2027].map(y=><option key={y} value={y}>{y}</option>)}
+            </select>
+          </div>
+        </div>
+        <nav style={{padding:"2px 10px",flex:1}}>
+          {navItems.map(item=>(
+            <button key={item.id} className={`sidebar-link${page===item.id?" active":""}`} onClick={()=>{setPage(item.id);setMenuOpen(false);}}>
+              <span style={{opacity:page===item.id?1:0.5,display:"flex",flexShrink:0}}>{item.icon}</span>
+              {item.label}
+            </button>
+          ))}
+        </nav>
+        <div style={{padding:"14px 18px 20px",borderTop:"1px solid var(--border)"}}>
+          {/* Tema */}
+          <div style={{marginBottom:14}}>
+            <div style={{fontSize:10,color:"var(--text-tertiary)",fontWeight:600,letterSpacing:"0.05em",textTransform:"uppercase",marginBottom:8}}>Izgled</div>
+            <div className="theme-seg">
+              {[
+                {v:"light",l:"Svijetla",i:<IconSun/>},
+                {v:"dark",l:"Tamna",i:<IconMoon/>},
+                {v:"system",l:"Sustav",i:<IconAuto/>},
+              ].map(o=>(
+                <button key={o.v} className={theme===o.v?"on":""} onClick={()=>setTheme(o.v)} title={o.l}>
+                  {o.i}<span>{o.l}</span>
+                </button>
+              ))}
+            </div>
+          </div>
+          {/* Backup / Restore */}
+          <div style={{marginBottom:14}}>
+            <div style={{fontSize:10,color:"var(--text-tertiary)",fontWeight:600,letterSpacing:"0.05em",textTransform:"uppercase",marginBottom:8}}>Backup podataka</div>
+            <div style={{display:"flex",gap:7}}>
+              <button onClick={handleExportJSON}
+                style={{flex:1,display:"flex",alignItems:"center",justifyContent:"center",gap:5,background:"var(--surface)",border:"1px solid var(--border)",borderRadius:10,padding:"8px 6px",cursor:"pointer",fontSize:12,fontWeight:500,color:"var(--text-secondary)",boxShadow:"var(--shadow-sm)",transition:"all .15s"}}
+                onMouseEnter={e=>{e.currentTarget.style.background="var(--bg)";e.currentTarget.style.borderColor="var(--border-strong)";}}
+                onMouseLeave={e=>{e.currentTarget.style.background="var(--surface)";e.currentTarget.style.borderColor="var(--border)";}}>
+                <svg width="13" height="13" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Spremi
+              </button>
+              <label style={{flex:1,display:"flex",alignItems:"center",justifyContent:"center",gap:5,background:"var(--surface)",border:"1px solid var(--border)",borderRadius:10,padding:"8px 6px",cursor:"pointer",fontSize:12,fontWeight:500,color:"var(--text-secondary)",boxShadow:"var(--shadow-sm)",transition:"all .15s"}}
+                onMouseEnter={e=>{e.currentTarget.style.background="var(--bg)";e.currentTarget.style.borderColor="var(--border-strong)";}}
+                onMouseLeave={e=>{e.currentTarget.style.background="var(--surface)";e.currentTarget.style.borderColor="var(--border)";}}>
+                <svg width="13" height="13" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                Učitaj
+                <input type="file" accept=".json" onChange={handleImportJSON} style={{position:"absolute",opacity:0,width:0,height:0,pointerEvents:"none"}}/>
+              </label>
+            </div>
+          </div>
+          {/* Stanje sinkronizacije */}
+          <div style={{marginBottom:12,padding:"10px 11px",background:"var(--surface)",border:"1px solid var(--border)",borderRadius:10,boxShadow:"var(--shadow-sm)"}}>
+            <div style={{display:"flex",alignItems:"center",gap:7}}>
+              <span className={"sync-dot "+(sync==="run"?"sync-run":sync==="ok"?"sync-ok":sync==="err"?"sync-err":"sync-idle")}/>
+              <span style={{fontSize:12,fontWeight:500,color:"var(--text-secondary)",flex:1}}>
+                {sync==="run"?"Sinkroniziram…":sync==="ok"?"Spremljeno":sync==="err"?"Greška":"Čekam"}
+              </span>
+              <button onClick={()=>runSync(pull)} title="Povuci s poslužitelja"
+                style={{background:"none",border:"none",cursor:"pointer",color:"var(--text-tertiary)",display:"flex",padding:2}}>
+                <svg width="13" height="13" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 11-2.12-9.36L23 10"/></svg>
+              </button>
+            </div>
+            {sync==="err"&&syncMsg&&<div style={{fontSize:10.5,color:"var(--red)",marginTop:6,lineHeight:1.35,wordBreak:"break-word"}}>{syncMsg}</div>}
+            {cloudEmpty&&(
+              <button onClick={handleMigrate}
+                style={{marginTop:9,width:"100%",background:"var(--accent)",color:"var(--on-accent)",border:"none",borderRadius:8,padding:"8px 6px",cursor:"pointer",fontSize:11.5,fontWeight:600,fontFamily:"var(--font)"}}>
+                Prenesi podatke na poslužitelj
+              </button>
+            )}
+            {!cloudEmpty&&sync==="err"&&(
+              <button onClick={()=>{if(confirm("Poslati sve lokalne podatke na poslužitelj? Postojeći zapisi za iste mjesece bit će prepisani."))handleMigrate();}}
+                style={{marginTop:9,width:"100%",background:"var(--surface)",color:"var(--text-secondary)",border:"1px solid var(--border-strong)",borderRadius:8,padding:"8px 6px",cursor:"pointer",fontSize:11.5,fontWeight:500,fontFamily:"var(--font)"}}>
+                Pokušaj ponovno poslati sve
+              </button>
+            )}
+          </div>
+
+          <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",gap:8}}>
+            <div style={{fontSize:10.5,color:"var(--text-tertiary)",fontWeight:500,letterSpacing:"0.04em",textTransform:"uppercase"}}>DOT YOUR SPOT d.o.o.</div>
+            <button onClick={onSignOut} title="Odjava"
+              style={{background:"none",border:"none",cursor:"pointer",color:"var(--text-tertiary)",display:"flex",padding:2,flexShrink:0}}>
+              <svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Main */}
+      <div className="dys-main" style={{marginLeft:228,flex:1,padding:"40px 44px",maxWidth:"calc(100vw - 228px)",minHeight:"100vh"}}>
+        {page==="home"&&<PageHome data={data} year={year} month={month} setPage={setPage} setSelectedEmp={setSelectedEmp} openDayModal={openDayModal} employees={employees}/>}
+        {page==="zaposlenici"&&<PageZaposlenici data={data} year={year} month={month} setPage={setPage} setSelectedEmp={setSelectedEmp} employees={employees} onSaveEmployee={saveEmployee} onDeleteEmployee={deleteEmployee}/>}
+        {page==="unos"&&<PageUnos data={data} year={year} month={month} setYear={setYear} setMonth={setMonth} selectedEmp={selectedEmp} setSelectedEmp={setSelectedEmp} persist={persist} excelReady={xlReady} employees={employees} initialDay={editDayModal&&editDayModal.day} onConsumeInitial={()=>setEditDayModal(null)}/>}
+        {page==="pregled"&&<PagePregled data={data} year={year} month={month} setYear={setYear} setMonth={setMonth} employees={employees}/>}
+        {page==="izvjestaji"&&<PageIzvjestaji data={data} year={year} month={month} excelReady={xlReady} employees={employees}/>}
+      </div>
+    </div>
+  );
+}
+
+// ── Prijava ────────────────────────────────────────────────────────────────────
+function Login(){
+  const [email,setEmail]=useState("");
+  const [pass,setPass]=useState("");
+  const [busy,setBusy]=useState(false);
+  const [err,setErr]=useState("");
+
+  const submit=async()=>{
+    if(!email||!pass){setErr("Upišite e-mail i lozinku.");return;}
+    setBusy(true);setErr("");
+    const c=sbClient();
+    if(!c){setErr("Nema veze s poslužiteljem. Provjerite internet i osvježite stranicu.");setBusy(false);return;}
+    const {error}=await c.auth.signInWithPassword({email:email.trim(),password:pass});
+    if(error){
+      setErr(error.message==="Invalid login credentials"?"Neispravan e-mail ili lozinka.":error.message);
+      setBusy(false);
+    }
+  };
+
+  const fld={width:"100%",padding:"12px 14px",borderRadius:10,border:"1px solid var(--border-strong)",background:"var(--surface)",fontSize:16,marginTop:6};
+
+  return(
+    <div style={{minHeight:"100vh",display:"flex",alignItems:"center",justifyContent:"center",background:"var(--bg)",padding:20}}>
+      <div className="page-enter" style={{width:"100%",maxWidth:360,background:"var(--surface)",border:"1px solid var(--border)",borderRadius:"var(--radius-xl)",boxShadow:"var(--shadow-lg)",padding:"32px 28px"}}>
+        <div style={{fontWeight:700,fontSize:19,letterSpacing:"-0.03em"}}>dotyourspot</div>
+        <div style={{fontSize:14,color:"var(--text-secondary)",marginTop:4,marginBottom:26}}>Evidencija radnog vremena</div>
+
+        <label style={{fontSize:13,fontWeight:500,color:"var(--text-secondary)"}}>E-mail
+          <input type="email" inputMode="email" autoComplete="username" value={email}
+            onChange={e=>setEmail(e.target.value)} onKeyDown={e=>e.key==="Enter"&&submit()} style={fld}/>
+        </label>
+        <div style={{height:14}}/>
+        <label style={{fontSize:13,fontWeight:500,color:"var(--text-secondary)"}}>Lozinka
+          <input type="password" autoComplete="current-password" value={pass}
+            onChange={e=>setPass(e.target.value)} onKeyDown={e=>e.key==="Enter"&&submit()} style={fld}/>
+        </label>
+
+        {err&&<div style={{marginTop:14,fontSize:13,color:"var(--red)",background:"var(--red-light)",padding:"9px 11px",borderRadius:9,lineHeight:1.4}}>{err}</div>}
+
+        <button onClick={submit} disabled={busy}
+          style={{width:"100%",marginTop:22,background:busy?"var(--text-tertiary)":"var(--accent)",color:"var(--on-accent)",border:"none",borderRadius:11,padding:"13px",fontSize:15,fontWeight:600,cursor:busy?"default":"pointer",fontFamily:"var(--font)",boxShadow:busy?"none":"0 2px 10px rgba(0,113,227,0.35)"}}>
+          {busy?"Prijavljujem…":"Prijava"}
+        </button>
+      </div>
+    </div>
+  );
+}
+
+function Splash(){
+  return <div style={{minHeight:"100vh",display:"flex",alignItems:"center",justifyContent:"center",background:"var(--bg)",color:"var(--text-tertiary)",fontSize:14}}>Učitavam…</div>;
+}
+
+function Root(){
+  const [session,setSession]=useState(undefined); // undefined = još provjeravam
+
+  useEffect(()=>{
+    let sub=null;
+    const start=()=>{
+      const c=sbClient();
+      if(!c){setTimeout(start,300);return;}
+      c.auth.getSession().then(({data})=>setSession(data.session||null)).catch(()=>setSession(null));
+      sub=c.auth.onAuthStateChange((_e,s)=>setSession(s||null)).data;
+    };
+    start();
+    return()=>{try{sub&&sub.subscription.unsubscribe();}catch(e){}};
+  },[]);
+
+  const signOut=async()=>{const c=sbClient();if(c)await c.auth.signOut();setSession(null);};
+
+  if(session===undefined)return <Splash/>;
+  if(!session)return <Login/>;
+  return <App session={session} onSignOut={signOut}/>;
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<Root/>);
+</script>
+</body>
+</html>
