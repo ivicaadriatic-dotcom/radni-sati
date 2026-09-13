@@ -991,7 +991,11 @@ function DayModal({emp,day,month,year,dayData,onSave,onDelete,onClose,employees,
     onSave({start:s,end:e,codes:nc,note:note||"",type:t.v},dan);
   };
 
-  return(
+  // Obrazac se iscrtava izravno u <body>, izvan omotača stranice.
+  // Omotač .page-enter ima transform, a element s transformom postaje
+  // referentna točka za position:fixed — zbog toga se obrazac lijepio
+  // za vrh sadržaja stranice umjesto za zaslon.
+  return ReactDOM.createPortal(
     <div className="unos-scrim" onMouseDown={ev=>{if(ev.target===ev.currentTarget)onClose();}}>
       <div className="unos-sheet" onMouseDown={ev=>ev.stopPropagation()}>
         <div className="unos-head">
@@ -1094,7 +1098,8 @@ function DayModal({emp,day,month,year,dayData,onSave,onDelete,onClose,employees,
           <button className="btn btn-primary" onClick={spremi}><IconCheck/> Spremi</button>
         </div>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 }
 
