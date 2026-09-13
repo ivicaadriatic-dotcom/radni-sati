@@ -463,6 +463,8 @@ td{letter-spacing:-0.01em;}
     align-items:flex-start!important;
     height:100vh!important;
     height:100dvh!important;
+    /* pomicanje prsta ostaje unutar obrasca, ne prenosi se na stranicu iza */
+    overscroll-behavior:contain;
   }
   .unos-sheet{
     max-width:100%!important;width:100%!important;
@@ -476,7 +478,7 @@ td{letter-spacing:-0.01em;}
   }
   .unos-head{padding:16px 18px 14px!important}
   .unos-title{font-size:19px!important}
-  .unos-body{padding:16px 18px!important;-webkit-overflow-scrolling:touch}
+  .unos-body{padding:16px 18px!important;-webkit-overflow-scrolling:touch;overscroll-behavior:contain}
   .unos-foot{
     padding:12px 18px calc(12px + env(safe-area-inset-bottom))!important;
     gap:10px!important;
@@ -954,20 +956,6 @@ function DayModal({emp,day,month,year,dayData,onSave,onDelete,onClose,employees,
   const [dan,setDan]=useState(day);
   const [codes,setCodes]=useState({...(dayData.codes||{})});
   const [advanced,setAdvanced]=useState(false);
-
-  // Dok je obrazac otvoren, stranica iza njega se ne pomiče.
-  // Bez ovoga se na mobitelu skrola pozadina umjesto obrasca.
-  useEffect(()=>{
-    const y=window.scrollY||window.pageYOffset||0;
-    const b=document.body,st=b.style;
-    const prev={position:st.position,top:st.top,left:st.left,right:st.right,width:st.width,overflow:st.overflow};
-    st.position="fixed";st.top=(-y)+"px";st.left="0";st.right="0";st.width="100%";st.overflow="hidden";
-    return()=>{
-      st.position=prev.position;st.top=prev.top;st.left=prev.left;
-      st.right=prev.right;st.width=prev.width;st.overflow=prev.overflow;
-      window.scrollTo(0,y);
-    };
-  },[]);
 
   const t=TYPE_BY_V[type]||TYPE_BY_V.work;
   const usesSpan=t.kind==="work"||t.kind==="span";
