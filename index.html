@@ -1712,6 +1712,29 @@ function App({session,onSignOut}){
 
   useEffect(()=>{runSync(pull);},[runSync,pull]);
 
+  // Ponovno povlačenje s poslužitelja kad se korisnik vrati u aplikaciju:
+  // prebacivanje kartice na računalu, povratak iz pozadine na telefonu.
+  const syncRef=useRef(sync);
+  useEffect(()=>{syncRef.current=sync;},[sync]);
+  const zadnjePovlacenje=useRef(Date.now());
+  useEffect(()=>{
+    const osvjezi=()=>{
+      if(document.visibilityState!=="visible")return;
+      // Ako zadnje slanje nije uspjelo ili je sinkronizacija u tijeku, ne diramo
+      // lokalne podatke — inače bi povlačenje pregazilo nespremljene unose.
+      if(syncRef.current==="err"||syncRef.current==="run")return;
+      if(Date.now()-zadnjePovlacenje.current<10000)return;  // najviše jednom u 10 sekundi
+      zadnjePovlacenje.current=Date.now();
+      runSync(pull);
+    };
+    document.addEventListener("visibilitychange",osvjezi);
+    window.addEventListener("focus",osvjezi);
+    return()=>{
+      document.removeEventListener("visibilitychange",osvjezi);
+      window.removeEventListener("focus",osvjezi);
+    };
+  },[runSync,pull]);
+
   // Prijenos lokalnih podataka na poslužitelj (jednokratno)
   const handleMigrate=()=>runSync(async()=>{
     await cloudSaveEmps(employees);
