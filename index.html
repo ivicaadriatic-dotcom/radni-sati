@@ -456,13 +456,23 @@ td{letter-spacing:-0.01em;}
 
 /* ── Obrazac za unos na mobitelu — pravila na samom kraju ──────────────── */
 @media(max-width:640px){
-  .unos-scrim{padding:0!important;align-items:flex-end!important}
+  /* Obrazac se otvara PRI VRHU zaslona, ne pri dnu.
+     dvh prati stvarnu vidljivu visinu pa dno obrasca ne ostaje ispod adresne trake. */
+  .unos-scrim{
+    padding:0!important;
+    align-items:flex-start!important;
+    height:100vh!important;
+    height:100dvh!important;
+  }
   .unos-sheet{
     max-width:100%!important;width:100%!important;
-    max-height:94vh!important;height:auto!important;
-    border-radius:22px 22px 0 0!important;
-    border-bottom:none!important;
-    animation:sheetUp .26s cubic-bezier(0.32,0.72,0,1) both!important;
+    max-height:100vh!important;
+    max-height:100dvh!important;
+    height:auto!important;
+    border-radius:0 0 22px 22px!important;
+    border-top:none!important;
+    padding-top:env(safe-area-inset-top)!important;
+    animation:sheetDown .26s cubic-bezier(0.32,0.72,0,1) both!important;
   }
   .unos-head{padding:16px 18px 14px!important}
   .unos-title{font-size:19px!important}
@@ -480,6 +490,7 @@ td{letter-spacing:-0.01em;}
   .unos-label{font-size:13px!important}
 }
 @keyframes sheetUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+@keyframes sheetDown{from{opacity:0;transform:translateY(-24px)}to{opacity:1;transform:translateY(0)}}
 </style>
 <script>
 /* Tema se primjenjuje prije iscrtavanja kako ne bi bilo bljeska */
@@ -943,6 +954,20 @@ function DayModal({emp,day,month,year,dayData,onSave,onDelete,onClose,employees,
   const [dan,setDan]=useState(day);
   const [codes,setCodes]=useState({...(dayData.codes||{})});
   const [advanced,setAdvanced]=useState(false);
+
+  // Dok je obrazac otvoren, stranica iza njega se ne pomiče.
+  // Bez ovoga se na mobitelu skrola pozadina umjesto obrasca.
+  useEffect(()=>{
+    const y=window.scrollY||window.pageYOffset||0;
+    const b=document.body,st=b.style;
+    const prev={position:st.position,top:st.top,left:st.left,right:st.right,width:st.width,overflow:st.overflow};
+    st.position="fixed";st.top=(-y)+"px";st.left="0";st.right="0";st.width="100%";st.overflow="hidden";
+    return()=>{
+      st.position=prev.position;st.top=prev.top;st.left=prev.left;
+      st.right=prev.right;st.width=prev.width;st.overflow=prev.overflow;
+      window.scrollTo(0,y);
+    };
+  },[]);
 
   const t=TYPE_BY_V[type]||TYPE_BY_V.work;
   const usesSpan=t.kind==="work"||t.kind==="span";
