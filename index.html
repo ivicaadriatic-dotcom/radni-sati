@@ -494,6 +494,105 @@ td{letter-spacing:-0.01em;}
 }
 @keyframes sheetUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
 @keyframes sheetDown{from{opacity:0;transform:translateY(-24px)}to{opacity:1;transform:translateY(0)}}
+
+/* ── Početna u stilu kartica (kao HACCP / Robno) ───────────────────────────── */
+.home-head{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;margin-bottom:26px;flex-wrap:wrap}
+.home-head-akcije{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.stanje-chip{
+  display:inline-flex;align-items:center;gap:7px;
+  background:var(--surface);border:1px solid var(--border);border-radius:20px;
+  padding:7px 14px;font-size:12px;font-weight:600;color:var(--text-secondary);
+  box-shadow:var(--shadow-sm);white-space:nowrap;
+}
+.sekcija-naslov{
+  font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;
+  color:var(--text-tertiary);margin:26px 0 12px;
+}
+.sekcija-naslov:first-of-type{margin-top:0}
+.plocice{display:grid;grid-template-columns:repeat(auto-fit,minmax(232px,1fr));gap:14px}
+.plocica{
+  background:var(--surface);border:1px solid var(--border);border-radius:18px;
+  padding:16px 17px 14px;cursor:pointer;text-align:left;
+  display:flex;flex-direction:column;gap:9px;
+  box-shadow:var(--shadow-sm);transition:transform .14s,border-color .14s,box-shadow .14s;
+  font-family:var(--font);
+}
+.plocica:hover{transform:translateY(-2px);border-color:var(--border-strong);box-shadow:var(--shadow-md)}
+.plocica:active{transform:translateY(0)}
+.plocica-vrh{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.plocica-ikona{
+  width:42px;height:42px;border-radius:12px;flex-shrink:0;
+  display:inline-flex;align-items:center;justify-content:center;color:#fff;
+}
+.plocica-znak{
+  font-size:11px;font-weight:600;color:var(--text-tertiary);
+  background:var(--surface-secondary);border-radius:20px;padding:4px 10px;white-space:nowrap;
+  overflow:hidden;text-overflow:ellipsis;max-width:60%;
+}
+.plocica-naslov{font-size:16px;font-weight:700;color:var(--text-primary);letter-spacing:-0.02em}
+.plocica-pod{display:flex;align-items:center;justify-content:space-between;gap:6px;font-size:12.5px;color:var(--text-tertiary)}
+.stat{
+  background:var(--surface);border:1px solid var(--border);border-radius:18px;
+  padding:16px 17px;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;gap:10px;
+}
+.stat-vrh{display:flex;align-items:center;gap:11px}
+.stat-labela{font-size:12.5px;color:var(--text-tertiary);line-height:1.3}
+.stat-broj{font-size:30px;font-weight:700;color:var(--text-primary);line-height:1;letter-spacing:-0.03em}
+
+/* Postavke */
+.post-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px 18px}
+.post-polje{display:flex;flex-direction:column;gap:6px;min-width:0}
+
+/* Donja navigacija — skrivena na računalu */
+.dys-tabbar{display:none}
+
+/* ── Donja navigacija i kartice na mobitelu — pravila na samom kraju ───────── */
+@media(max-width:900px){
+  .dys-tabbar{
+    display:flex!important;align-items:flex-end;justify-content:space-around;
+    position:fixed;left:0;right:0;bottom:0;z-index:150;
+    background:var(--sidebar-bg);
+    backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);
+    border-top:1px solid var(--border);
+    padding:6px 4px calc(6px + env(safe-area-inset-bottom));
+  }
+  .dys-tabbar .tab{
+    flex:1;min-width:0;background:none;border:none;cursor:pointer;
+    display:flex;flex-direction:column;align-items:center;gap:3px;
+    padding:6px 2px;color:var(--text-tertiary);font-family:var(--font);
+    font-size:10.5px;font-weight:600;letter-spacing:-0.01em;
+  }
+  .dys-tabbar .tab span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:100%}
+  .dys-tabbar .tab.on{color:var(--accent)}
+  .dys-tabbar .tab-fab{
+    flex:0 0 auto;width:56px;height:56px;border-radius:50%;
+    background:var(--accent);color:var(--on-accent);border:none;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;
+    margin:-20px 4px 2px;box-shadow:0 6px 18px var(--accent-light),0 2px 6px rgba(0,0,0,.18);
+  }
+  .dys-tabbar .tab-fab:active{transform:scale(.94)}
+  .dys-tabbar .tab-fab svg{width:26px;height:26px;stroke-width:2.4}
+  /* prostor da donja traka ne pokriva sadržaj */
+  .dys-main{padding-bottom:104px!important;padding-top:24px!important}
+  /* gumb izbornika nije potreban — "Više" u donjoj traci otvara isti izbornik */
+  .dys-burger{display:none!important}
+  .plocice{grid-template-columns:1fr 1fr!important;gap:11px!important}
+  .plocica{padding:13px 13px 11px!important;border-radius:16px!important;gap:7px!important}
+  .plocica-ikona{width:38px!important;height:38px!important;border-radius:11px!important}
+  .plocica-naslov{font-size:14.5px!important}
+  .plocica-pod{font-size:11.5px!important}
+  .plocica-znak{font-size:10px!important;padding:3px 8px!important}
+  .stat{padding:13px 13px!important;border-radius:16px!important}
+  .stat-broj{font-size:24px!important}
+  .stat-labela{font-size:11.5px!important}
+  .home-novi{display:none!important}
+  .post-grid{grid-template-columns:1fr!important}
+  .sekcija-naslov{margin:20px 0 10px!important}
+}
+@media(max-width:380px){
+  .dys-tabbar .tab{font-size:9.5px}
+  .dys-tabbar .tab-fab{width:50px;height:50px;margin:-16px 2px 2px}
+}
 </style>
 <script>
 /* Tema se primjenjuje prije iscrtavanja kako ne bi bilo bljeska */
@@ -584,6 +683,12 @@ const lsLoad=()=>{try{const r=localStorage.getItem(LS_KEY);return r?JSON.parse(r
 const lsSave=d=>{try{localStorage.setItem(LS_KEY,JSON.stringify(d))}catch{}};
 const lsLoadEmps=()=>{try{const r=localStorage.getItem(LS_EMP_KEY);return r?JSON.parse(r):DEFAULT_EMPLOYEES}catch{return DEFAULT_EMPLOYEES}};
 const lsSaveEmps=e=>{try{localStorage.setItem(LS_EMP_KEY,JSON.stringify(e))}catch{}};
+
+// ── Podaci tvrtke (Postavke) ───────────────────────────────────────────────────
+const LS_FIRMA="dys_firma_v1";
+const PRAZNA_FIRMA={naziv:"DOT YOUR SPOT d.o.o.",oib:"",adresa:"",email:"",telefon:"",iban:"",logo:""};
+const lsLoadFirma=()=>{try{const r=localStorage.getItem(LS_FIRMA);return r?{...PRAZNA_FIRMA,...JSON.parse(r)}:{...PRAZNA_FIRMA}}catch{return{...PRAZNA_FIRMA}}};
+const lsSaveFirma=f=>{try{localStorage.setItem(LS_FIRMA,JSON.stringify(f))}catch{}};
 
 // ── Supabase ───────────────────────────────────────────────────────────────────
 const SB_URL="https://yxnlnxoeplvwucgaoanj.supabase.co";
@@ -935,6 +1040,8 @@ function guessType(dd){
 // ── Ikone obrasca ──────────────────────────────────────────────────────────────
 const IconX=()=><svg width="15" height="15" fill="none" stroke="currentColor" strokeWidth="2.2" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>;
 const IconCheck=()=><svg width="15" height="15" fill="none" stroke="currentColor" strokeWidth="2.6" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>;
+const IconPostavke=()=><svg width="17" height="17" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 11-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 11-4 0v-.09A1.65 1.65 0 008 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 11-2.83-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 110-4h.09A1.65 1.65 0 004.6 8a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 112.83-2.83l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 114 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 112.83 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 110 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>;
+const IconVise=()=><svg width="17" height="17" fill="currentColor" stroke="none" viewBox="0 0 24 24"><circle cx="5" cy="12" r="1.9"/><circle cx="12" cy="12" r="1.9"/><circle cx="19" cy="12" r="1.9"/></svg>;
 const IconTrash=()=><svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 01-2 2H8a2 2 0 01-2-2L5 6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2"/></svg>;
 const IconCaret=({open})=><svg width="13" height="13" fill="none" stroke="currentColor" strokeWidth="2.2" viewBox="0 0 24 24" style={{transform:open?"rotate(90deg)":"none",transition:"transform .18s"}}><polyline points="9 18 15 12 9 6"/></svg>;
 
@@ -1105,11 +1212,10 @@ function DayModal({emp,day,month,year,dayData,onSave,onDelete,onClose,employees,
 }
 
 // ── Početna stranica ───────────────────────────────────────────────────────────
-function PageHome({data,year,month,setPage,setSelectedEmp,openDayModal,employees}){
-  const now=new Date();
+function PageHome({data,year,month,setPage,setSelectedEmp,openDayModal,employees,firma,sync}){
   const dc=DAYS_IN_MONTH(year,month);
 
-  // Recent entries - gather last entered days across all employees
+  // Nedavni unosi
   const recent=[];
   employees.forEach(emp=>{
     const md=data[`${emp.id}_${year}_${month}`]||{};
@@ -1124,96 +1230,111 @@ function PageHome({data,year,month,setPage,setSelectedEmp,openDayModal,employees
   recent.sort((a,b)=>b.day-a.day||(employees.findIndex(e=>e.id===b.emp.id)-employees.findIndex(e=>e.id===a.emp.id)));
   const recentTop=recent.slice(0,8);
 
-  // Stats
+  // Brojke
   let totalUnosi=0,totalSatiMj=0;
   employees.forEach(emp=>{const md=data[`${emp.id}_${year}_${month}`]||{};for(let d=1;d<=dc;d++){const dd=md[d];if(dd&&(dd.start||dd.end)){totalUnosi++;totalSatiMj+=parseFloat(dd.codes?.II)||calcH(dd.start,dd.end)||0;}}});
   let ukupnoSvi=0;
   employees.forEach(emp=>{for(let m2=0;m2<12;m2++){const md=data[`${emp.id}_${year}_${m2}`]||{};const dc2=DAYS_IN_MONTH(year,m2);for(let d=1;d<=dc2;d++){const dd=md[d];if(dd&&(dd.start||dd.end))ukupnoSvi++;}}});
 
-  const kpi=[
-    {label:"Zaposlenici",value:employees.length,icon:<IconUsers/>,color:"var(--c-slate-200)",iconBg:"var(--c-slate-100)",textC:"var(--c-slate-900)"},
-    {label:"Ukupno unosa",value:ukupnoSvi,icon:<IconCalendar/>,color:"var(--c-slate-200)",iconBg:"var(--c-slate-100)",textC:"var(--c-slate-900)"},
-    {label:"Unosi ovaj mjesec",value:totalUnosi,icon:<IconClock/>,color:"var(--c-red-100)",iconBg:"var(--c-red-25)",textC:"var(--c-red-600)"},
-    {label:"Sati ovaj mjesec",value:Math.round(totalSatiMj),icon:<IconTrend/>,color:"var(--c-amber-100)",iconBg:"var(--c-amber-50)",textC:"var(--c-amber-600)"},
+  // Koliko je djelatnika danas evidentirano
+  const danas=new Date();
+  const jeTekuci=danas.getFullYear()===year&&danas.getMonth()===month;
+  const danKljuc=danas.getDate();
+  let danasUneseno=0;
+  if(jeTekuci) employees.forEach(emp=>{
+    const dd=(data[`${emp.id}_${year}_${month}`]||{})[danKljuc];
+    if(dd&&(dd.start||dd.end||Object.values(dd.codes||{}).some(v=>v)))danasUneseno++;
+  });
+
+  const akcije=[
+    {ikona:<IconClock/>, boja:"#ff9500", naslov:"Unos sati",        pod:"Dodirnite za unos",  page:"unos",        znak:jeTekuci?(danasUneseno>=employees.length?"Danas uneseno":"Čeka unos"):"Otvori"},
+    {ikona:<IconUsers/>, boja:"#32ade6", naslov:"Zaposlenici",      pod:"Dodirnite za pregled",page:"zaposlenici", znak:employees.length+" osoba"},
+    {ikona:<IconCalendar/>,boja:"#34c759",naslov:"Mjesečni pregled", pod:"Dodirnite za pregled",page:"pregled",     znak:MONTHS[month]},
+    {ikona:<IconReport/>,boja:"#af52de", naslov:"Izvještaji",        pod:"Excel izvoz",         page:"izvjestaji",  znak:"Izvoz"},
+  ];
+
+  const brojke=[
+    {ikona:<IconUsers/>,   boja:"#32ade6", labela:"Zaposlenici",        vrij:employees.length},
+    {ikona:<IconClock/>,   boja:"#ff9500", labela:"Unosi – "+MONTHS[month], vrij:totalUnosi},
+    {ikona:<IconTrend/>,   boja:"#34c759", labela:"Sati – "+MONTHS[month],  vrij:Math.round(totalSatiMj)},
+    {ikona:<IconCalendar/>,boja:"#007aff", labela:"Ukupno unosa – "+year,   vrij:ukupnoSvi},
   ];
 
   const pad=n=>String(n).padStart(2,"0");
 
   return(
     <div className="page-enter">
-      <div style={{display:"flex",justifyContent:"space-between",alignItems:"flex-start",marginBottom:28}}>
-        <div>
-          <h1 style={{fontSize:26,fontWeight:700,color:"var(--text-primary)",marginBottom:4}}>Dobrodošli</h1>
-          <div style={{fontSize:14,color:"var(--text-tertiary)"}}>{MONTHS[month]} {year}</div>
+      {/* Zaglavlje */}
+      <div className="home-head">
+        <div style={{minWidth:0}}>
+          <h1 style={{fontSize:24,fontWeight:700,color:"var(--text-primary)",letterSpacing:"-0.03em",marginBottom:3}}>Dobrodošli</h1>
+          <div style={{fontSize:13,color:"var(--text-tertiary)",overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}}>
+            {(firma&&firma.naziv)||"DOT YOUR SPOT d.o.o."} · {MONTHS[month]} {year}
+          </div>
         </div>
-        <button className="btn btn-primary" onClick={()=>setPage("unos")} style={{display:"flex",alignItems:"center",gap:6,padding:"10px 20px",borderRadius:12}}>
-          <IconPlus/> Novi unos
-        </button>
+        <div className="home-head-akcije">
+          <span className="stanje-chip">
+            <span className={"sync-dot "+(sync==="run"?"sync-run":sync==="err"?"sync-err":"sync-ok")}/>
+            {sync==="run"?"Sinkroniziram":sync==="err"?"Greška":"Spremljeno"}
+          </span>
+          <button className="btn btn-primary home-novi" onClick={()=>setPage("unos")} style={{display:"inline-flex",alignItems:"center",gap:6,borderRadius:12}}>
+            <IconPlus/> Novi unos
+          </button>
+        </div>
       </div>
 
-      {/* KPI */}
-      <div style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:16,marginBottom:28}}>
-        {kpi.map((k,i)=>(
-          <div key={i} style={{background:"var(--surface)",border:"1px solid var(--border)",borderRadius:18,padding:"20px 22px",display:"flex",justifyContent:"space-between",alignItems:"center",boxShadow:"var(--shadow-sm)"}}>
-            <div>
-              <div style={{fontSize:13,color:"var(--text-tertiary)",marginBottom:8}}>{k.label}</div>
-              <div style={{fontSize:28,fontWeight:700,color:k.textC,lineHeight:1}}>{k.value}</div>
+      {/* Brze akcije */}
+      <div className="sekcija-naslov">Brze akcije</div>
+      <div className="plocice">
+        {akcije.map((a,i)=>(
+          <button key={i} className="plocica" onClick={()=>setPage(a.page)}>
+            <div className="plocica-vrh">
+              <span className="plocica-ikona" style={{background:a.boja}}>{a.ikona}</span>
+              <span className="plocica-znak">{a.znak}</span>
             </div>
-            <div style={{width:44,height:44,borderRadius:14,background:k.iconBg,border:`1px solid ${k.color}`,display:"flex",alignItems:"center",justifyContent:"center",color:k.textC}}>{k.icon}</div>
+            <div className="plocica-naslov">{a.naslov}</div>
+            <div className="plocica-pod">{a.pod}<svg width="15" height="15" fill="none" stroke="currentColor" strokeWidth="2.2" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
+          </button>
+        ))}
+      </div>
+
+      {/* Brojke */}
+      <div className="sekcija-naslov">Brojke</div>
+      <div className="plocice">
+        {brojke.map((b,i)=>(
+          <div key={i} className="stat">
+            <div className="stat-vrh">
+              <span className="plocica-ikona" style={{background:b.boja}}>{b.ikona}</span>
+              <span className="stat-labela">{b.labela}</span>
+            </div>
+            <div className="stat-broj">{b.vrij}</div>
           </div>
         ))}
       </div>
 
-      <div style={{display:"grid",gridTemplateColumns:"1fr 340px",gap:20}}>
-        {/* Recent entries */}
-        <div style={{background:"var(--surface)",border:"1px solid var(--border)",borderRadius:16,overflow:"hidden"}}>
-          <div style={{padding:"18px 22px",borderBottom:"1px solid var(--border)",display:"flex",justifyContent:"space-between",alignItems:"center"}}>
-            <div style={{fontWeight:700,fontSize:15,color:"var(--text-primary)"}}>Nedavni unosi</div>
-            <button onClick={()=>setPage("unos")} style={{background:"none",border:"none",color:"var(--text-tertiary)",cursor:"pointer",fontSize:13,display:"flex",alignItems:"center",gap:4}}>Vidi sve <IconArrow/></button>
-          </div>
-          {recentTop.length===0?(
-            <div style={{padding:"40px 22px",textAlign:"center",color:"var(--text-tertiary)",fontSize:14,letterSpacing:"-0.01em"}}>Nema unesenih sati za ovaj mjesec</div>
-          ):(
-            recentTop.map((r,i)=>(
-              <div key={i} onClick={()=>{setSelectedEmp(r.emp.id);openDayModal(r.day,r.emp.id);}}
-                style={{padding:"14px 22px",borderBottom:"1px solid var(--c-slate-50)",display:"flex",alignItems:"center",gap:14,cursor:"pointer",transition:"background .1s"}}
-                onMouseEnter={e=>e.currentTarget.style.background="var(--c-slate-50)"}
-                onMouseLeave={e=>e.currentTarget.style.background="var(--surface)"}>
-                <Avatar emp={r.emp} size={40} employees={employees}/>
-                <div style={{flex:1}}>
-                  <div style={{fontWeight:600,fontSize:14,color:"var(--text-primary)"}}>{r.emp.name.split(" ").slice(0,2).map(w=>w.charAt(0)+w.slice(1).toLowerCase()).join(" ")}</div>
-                  <div style={{fontSize:12,color:"var(--text-tertiary)",marginTop:1}}>{pad(r.day)}. {pad(r.month+1)}. {r.year}.</div>
-                </div>
-                <div style={{textAlign:"right"}}>
-                  <div style={{fontWeight:700,fontSize:15,color:"var(--text-primary)"}}>{r.totalH}h</div>
-                  <div style={{fontSize:11,color:"var(--text-tertiary)"}}>{pad(parseInt(r.start)||0)}:00 - {pad(parseInt(r.end)||0)}:00</div>
-                </div>
+      {/* Nedavni unosi */}
+      <div className="sekcija-naslov">Nedavni unosi</div>
+      <div style={{background:"var(--surface)",border:"1px solid var(--border)",borderRadius:16,overflow:"hidden"}}>
+        {recentTop.length===0?(
+          <div style={{padding:"34px 20px",textAlign:"center",color:"var(--text-tertiary)",fontSize:14}}>Nema unesenih sati za ovaj mjesec</div>
+        ):(
+          recentTop.map((r,i)=>(
+            <div key={i} onClick={()=>{setSelectedEmp(r.emp.id);openDayModal(r.day,r.emp.id);}}
+              style={{padding:"13px 18px",borderBottom:i<recentTop.length-1?"1px solid var(--border)":"none",display:"flex",alignItems:"center",gap:13,cursor:"pointer"}}
+              onMouseEnter={e=>e.currentTarget.style.background="var(--hover)"}
+              onMouseLeave={e=>e.currentTarget.style.background="transparent"}>
+              <Avatar emp={r.emp} size={38} employees={employees}/>
+              <div style={{flex:1,minWidth:0}}>
+                <div style={{fontWeight:600,fontSize:14,color:"var(--text-primary)",overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}}>{r.emp.name.split(" ").slice(0,2).map(w=>w.charAt(0)+w.slice(1).toLowerCase()).join(" ")}</div>
+                <div style={{fontSize:12,color:"var(--text-tertiary)",marginTop:1}}>{pad(r.day)}. {pad(r.month+1)}. {r.year}.</div>
               </div>
-            ))
-          )}
-        </div>
-
-        {/* Quick actions */}
-        <div style={{background:"var(--surface)",border:"1px solid var(--border)",borderRadius:16,padding:"18px 20px",height:"fit-content"}}>
-          <div style={{fontWeight:700,fontSize:15,color:"var(--text-primary)",marginBottom:16}}>Brze akcije</div>
-          {[
-            {icon:<IconUsers/>,label:"Upravljanje zaposlenicima",sub:"Pregled svih zaposlenika",page:"zaposlenici",c:"var(--c-slate-100)"},
-            {icon:<IconClock/>,label:"Unos radnih sati",sub:"Evidentiraj radno vrijeme",page:"unos",c:"var(--c-slate-100)"},
-            {icon:<IconCalendar/>,label:"Mjesečni pregled",sub:"Kalendarski prikaz",page:"pregled",c:"var(--c-slate-100)"},
-            {icon:<IconReport/>,label:"Izvještaji i izvoz",sub:"Excel izvoz podataka",page:"izvjestaji",c:"var(--c-slate-100)"},
-          ].map((a,i)=>(
-            <button key={i} onClick={()=>setPage(a.page)}
-              style={{width:"100%",background:"var(--surface)",border:"1px solid var(--border)",borderRadius:12,padding:"13px 14px",marginBottom:10,cursor:"pointer",display:"flex",alignItems:"center",gap:12,textAlign:"left",transition:"all .15s"}}
-              onMouseEnter={e=>{e.currentTarget.style.background="var(--c-slate-50)";e.currentTarget.style.borderColor="var(--c-slate-300)";}}
-              onMouseLeave={e=>{e.currentTarget.style.background="var(--surface)";e.currentTarget.style.borderColor="var(--border)";}}>
-              <div style={{width:36,height:36,borderRadius:9,background:"var(--surface-secondary)",display:"flex",alignItems:"center",justifyContent:"center",color:"var(--text-secondary)",flexShrink:0}}>{a.icon}</div>
-              <div>
-                <div style={{fontWeight:600,fontSize:13,color:"var(--text-primary)"}}>{a.label}</div>
-                <div style={{fontSize:11,color:"var(--text-tertiary)",marginTop:1}}>{a.sub}</div>
+              <div style={{textAlign:"right",flexShrink:0}}>
+                <div style={{fontWeight:700,fontSize:15,color:"var(--text-primary)"}}>{r.totalH}h</div>
+                <div style={{fontSize:11,color:"var(--text-tertiary)"}}>{pad(parseInt(r.start)||0)}:00–{pad(parseInt(r.end)||0)}:00</div>
               </div>
-            </button>
-          ))}
-        </div>
+            </div>
+          ))
+        )}
       </div>
     </div>
   );
@@ -1559,7 +1680,11 @@ function PagePregled({data,year,month,setYear,setMonth,employees}){
   const empStats=employees.map(emp=>{
     const md=data[`${emp.id}_${year}_${month}`]||{};
     const get=k=>{let s=0;for(let d=1;d<=dc;d++){const dd=md[d]||emptyDay();s+=k==="II"?(parseFloat(dd.codes?.II)||calcH(dd.start,dd.end)||0):(parseFloat(dd.codes?.[k]||0)||0);}return Math.round(s*10)/10;};
-    return{...emp,II:get("II"),IV:get("IV"),VII:get("VII"),IX:get("IX"),X:get("X"),III:get("III"),VI:get("VI")};
+    const r={...emp,II:get("II"),IV:get("IV"),VII:get("VII"),IX:get("IX"),X:get("X"),III:get("III"),VI:get("VI")};
+    // Ukupno = odrađeni rad + odsustva. III i IV se ne zbrajaju jer su
+    // razrada unutar II (noćni i prekovremeni su dio ukupnog radnog vremena).
+    r.UK=Math.round((r.II+r.VII+r.IX+r.X)*10)/10;
+    return r;
   });
   // Full name helper: "KARLO ĐUDERIJA" → "Karlo Đuderija"
   const fullName=name=>name.split(" ").map(w=>w.charAt(0)+w.slice(1).toLowerCase()).join(" ");
@@ -1582,7 +1707,7 @@ function PagePregled({data,year,month,setYear,setMonth,employees}){
         <div style={{overflowX:"auto"}}>
           <table style={{width:"100%",borderCollapse:"collapse",fontSize:13}}>
             <thead><tr style={{background:"var(--bg)"}}>
-              {["Zaposlenik","Pozicija","Ukupno sati","Prekovremeni","Noćni rad","Godišnji","Bolovanje","Pl. dopust"].map((h,i)=>(
+              {["Zaposlenik","Pozicija","Ukupno sati","Prekovremeni","Noćni rad","Godišnji","Bolovanje","Pl. dopust","Ukupno"].map((h,i)=>(
                 <th key={i} style={{padding:"12px 16px",textAlign:i<2?"left":"center",color:"var(--text-secondary)",fontWeight:700,borderBottom:"1px solid var(--border)",whiteSpace:"nowrap",fontSize:12,textTransform:"uppercase",letterSpacing:.3}}>{h}</th>
               ))}
             </tr></thead>
@@ -1602,12 +1727,14 @@ function PagePregled({data,year,month,setYear,setMonth,employees}){
                     const colors=["var(--c-blue-600)","var(--c-amber-600)","var(--c-indigo-500)","var(--c-green-600)","var(--c-red-600)","var(--c-violet-600)"];
                     return <td key={vi} style={{padding:"12px 16px",textAlign:"center",color:v>0?colors[vi]:"var(--c-slate-300)",fontWeight:v>0?700:400,fontSize:14}}>{v||"—"}</td>;
                   })}
+                  <td style={{padding:"12px 16px",textAlign:"center",fontWeight:800,fontSize:15,color:e.UK>0?"var(--text-primary)":"var(--c-slate-300)",background:"var(--surface-secondary)",borderLeft:"1px solid var(--border)"}}>{e.UK||"—"}</td>
                 </tr>
               ))}
               <tr style={{background:"var(--accent-light)",borderTop:"2px solid var(--c-blue-200)"}}>
                 <td colSpan={2} style={{padding:"13px 16px",fontWeight:700,color:"var(--accent)",fontSize:13}}>UKUPNO</td>
                 {[empStats.reduce((a,e)=>a+e.II,0),empStats.reduce((a,e)=>a+e.IV,0),empStats.reduce((a,e)=>a+e.III,0),empStats.reduce((a,e)=>a+e.VII,0),empStats.reduce((a,e)=>a+e.IX,0),empStats.reduce((a,e)=>a+e.X,0)]
                  .map((v,i)=><td key={i} style={{padding:"13px 16px",textAlign:"center",fontWeight:700,color:v>0?"var(--c-blue-700)":"var(--c-slate-300)",fontSize:14}}>{v||"—"}</td>)}
+                <td style={{padding:"13px 16px",textAlign:"center",fontWeight:800,fontSize:15,color:"var(--accent)",borderLeft:"1px solid var(--c-blue-200)"}}>{empStats.reduce((a,e)=>a+e.UK,0)||"—"}</td>
               </tr>
             </tbody>
           </table>
@@ -1655,6 +1782,144 @@ function PageIzvjestaji({data,year,month,excelReady,employees}){
 }
 
 // ── Main App ───────────────────────────────────────────────────────────────────
+// ── Postavke ───────────────────────────────────────────────────────────────────
+function PagePostavke({firma,onSaveFirma,theme,setTheme,onExport,onImport,sync,syncMsg,cloudEmpty,onMigrate,onPull,onSignOut,employees,data}){
+  const [f,setF]=useState(firma);
+  const [spremljeno,setSpremljeno]=useState(false);
+  const set=(k,v)=>{setF(p=>({...p,[k]:v}));setSpremljeno(false);};
+
+  const spremi=()=>{onSaveFirma(f);setSpremljeno(true);setTimeout(()=>setSpremljeno(false),2200);};
+
+  const ucitajLogo=ev=>{
+    const file=ev.target.files&&ev.target.files[0];
+    if(!file)return;
+    if(file.size>400*1024){alert("Logo je prevelik. Odaberi sliku do 400 KB.");return;}
+    const r=new FileReader();
+    r.onload=()=>{const nf={...f,logo:r.result};setF(nf);onSaveFirma(nf);};
+    r.readAsDataURL(file);
+    ev.target.value="";
+  };
+
+  const polja=[
+    {k:"naziv",l:"Naziv tvrtke",ph:"DOT YOUR SPOT d.o.o."},
+    {k:"oib",l:"OIB",ph:"12345678901",maxLength:11,inputMode:"numeric"},
+    {k:"adresa",l:"Adresa",ph:"Ulica i broj, Split"},
+    {k:"email",l:"E-mail",ph:"info@tvrtka.hr",type:"email"},
+    {k:"telefon",l:"Telefon",ph:"+385 21 000 000"},
+    {k:"iban",l:"IBAN",ph:"HR1210010051863000160"},
+  ];
+
+  const Odjeljak=({naslov,opis,children})=>(
+    <div className="card" style={{padding:0,marginBottom:18,overflow:"hidden"}}>
+      <div style={{padding:"16px 20px",borderBottom:"1px solid var(--border)"}}>
+        <div style={{fontWeight:700,fontSize:14,color:"var(--text-primary)"}}>{naslov}</div>
+        {opis&&<div style={{fontSize:12,color:"var(--text-tertiary)",marginTop:2}}>{opis}</div>}
+      </div>
+      <div style={{padding:"18px 20px"}}>{children}</div>
+    </div>
+  );
+
+  return(
+    <div className="page-enter" style={{maxWidth:760}}>
+      <div style={{marginBottom:24}}>
+        <h2 style={{fontSize:22,fontWeight:700,color:"var(--text-primary)",letterSpacing:"-0.03em"}}>Postavke</h2>
+        <div style={{fontSize:13,color:"var(--text-tertiary)",marginTop:2}}>Podaci tvrtke, izgled i sigurnosna kopija</div>
+      </div>
+
+      <Odjeljak naslov="Podaci tvrtke" opis="Koriste se u zaglavlju aplikacije i na izvještajima">
+        <div className="post-grid">
+          {polja.map(p=>(
+            <div key={p.k} className="post-polje">
+              <label className="unos-label">{p.l}</label>
+              <input className="unos-input" type={p.type||"text"} value={f[p.k]||""} placeholder={p.ph}
+                maxLength={p.maxLength} inputMode={p.inputMode}
+                onChange={e=>set(p.k,e.target.value)}/>
+            </div>
+          ))}
+        </div>
+
+        <div style={{marginTop:18,paddingTop:18,borderTop:"1px solid var(--border)"}}>
+          <label className="unos-label" style={{display:"block",marginBottom:10}}>Logo tvrtke</label>
+          <div style={{display:"flex",alignItems:"center",gap:16,flexWrap:"wrap"}}>
+            <div style={{width:92,height:92,borderRadius:16,border:"1px dashed var(--border-strong)",background:"var(--surface-secondary)",display:"flex",alignItems:"center",justifyContent:"center",overflow:"hidden",flexShrink:0}}>
+              {f.logo
+                ? <img src={f.logo} alt="Logo" style={{maxWidth:"100%",maxHeight:"100%",objectFit:"contain"}}/>
+                : <span style={{fontSize:11,color:"var(--text-tertiary)",textAlign:"center",padding:6}}>Nema logotipa</span>}
+            </div>
+            <div style={{display:"flex",flexDirection:"column",gap:8}}>
+              <label className="btn btn-outline" style={{cursor:"pointer",display:"inline-flex",alignItems:"center",gap:6}}>
+                {f.logo?"Zamijeni logo":"Učitaj logo"}
+                <input type="file" accept="image/*" onChange={ucitajLogo} style={{position:"absolute",opacity:0,width:0,height:0}}/>
+              </label>
+              {f.logo&&(
+                <button className="btn btn-outline" onClick={()=>{const nf={...f,logo:""};setF(nf);onSaveFirma(nf);}}
+                  style={{color:"var(--red)"}}>Ukloni logo</button>
+              )}
+              <div style={{fontSize:11,color:"var(--text-tertiary)",maxWidth:240,lineHeight:1.4}}>
+                PNG ili JPG do 400 KB. Prikazuje se u bočnom izborniku i zaglavlju na mobitelu.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style={{marginTop:18,display:"flex",alignItems:"center",gap:12}}>
+          <button className="btn btn-primary" onClick={spremi}><IconCheck/> Spremi podatke</button>
+          {spremljeno&&<span style={{fontSize:13,color:"var(--green)",fontWeight:600}}>Spremljeno</span>}
+        </div>
+      </Odjeljak>
+
+      <Odjeljak naslov="Izgled" opis="Svijetla, tamna ili prema postavci sustava">
+        <div className="theme-seg" style={{maxWidth:340}}>
+          {[{v:"light",l:"Svijetla",i:<IconSun/>},{v:"dark",l:"Tamna",i:<IconMoon/>},{v:"system",l:"Sustav",i:<IconAuto/>}].map(o=>(
+            <button key={o.v} className={theme===o.v?"on":""} onClick={()=>setTheme(o.v)} title={o.l}>{o.i}<span>{o.l}</span></button>
+          ))}
+        </div>
+      </Odjeljak>
+
+      <Odjeljak naslov="Backup podataka" opis="Spremi sve podatke u datoteku ili ih vrati iz ranije kopije">
+        <div style={{display:"flex",gap:10,flexWrap:"wrap"}}>
+          <button className="btn btn-outline" onClick={onExport} style={{display:"inline-flex",alignItems:"center",gap:7}}>
+            <svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Spremi u datoteku
+          </button>
+          <label className="btn btn-outline" style={{cursor:"pointer",display:"inline-flex",alignItems:"center",gap:7}}>
+            <svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+            Učitaj iz datoteke
+            <input type="file" accept=".json" onChange={onImport} style={{position:"absolute",opacity:0,width:0,height:0}}/>
+          </label>
+        </div>
+        <div style={{fontSize:12,color:"var(--text-tertiary)",marginTop:12,lineHeight:1.5}}>
+          Trenutno u aplikaciji: <strong style={{color:"var(--text-secondary)"}}>{employees.length}</strong> zaposlenika i{" "}
+          <strong style={{color:"var(--text-secondary)"}}>{Object.keys(data||{}).length}</strong> mjesečnih zapisa.
+        </div>
+      </Odjeljak>
+
+      <Odjeljak naslov="Sinkronizacija" opis="Podaci se automatski šalju na poslužitelj pri svakom spremanju">
+        <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:12}}>
+          <span className={"sync-dot "+(sync==="run"?"sync-run":sync==="ok"?"sync-ok":sync==="err"?"sync-err":"sync-idle")}/>
+          <span style={{fontSize:13,fontWeight:600,color:"var(--text-secondary)",flex:1}}>
+            {sync==="run"?"Sinkroniziram…":sync==="ok"?"Sve spremljeno":sync==="err"?"Greška pri sinkronizaciji":"Čekam"}
+          </span>
+          <button className="btn btn-outline" onClick={onPull}>Povuci s poslužitelja</button>
+        </div>
+        {sync==="err"&&syncMsg&&<div style={{fontSize:12,color:"var(--red)",marginBottom:10,lineHeight:1.4}}>{syncMsg}</div>}
+        {(cloudEmpty||sync==="err")&&(
+          <button className="btn btn-primary" onClick={()=>{if(cloudEmpty||confirm("Poslati sve lokalne podatke na poslužitelj? Postojeći zapisi za iste mjesece bit će prepisani."))onMigrate();}}>
+            Prenesi sve podatke na poslužitelj
+          </button>
+        )}
+      </Odjeljak>
+
+      <Odjeljak naslov="Račun">
+        <button className="btn btn-outline" onClick={onSignOut} style={{color:"var(--red)",display:"inline-flex",alignItems:"center",gap:7}}>
+          <svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+          Odjava
+        </button>
+      </Odjeljak>
+    </div>
+  );
+}
+
 function App({session,onSignOut}){
   const excelReady=!!window.ExcelJS;
   const [xlReady,setXlReady]=useState(excelReady);
@@ -1673,6 +1938,8 @@ function App({session,onSignOut}){
   const [syncMsg,setSyncMsg]=useState("");
   const [cloudEmpty,setCloudEmpty]=useState(false);
   const [theme,setTheme]=useState(()=>{try{return localStorage.getItem(LS_THEME)||"system"}catch{return"system"}});
+  const [firma,setFirma]=useState(()=>lsLoadFirma());
+  const saveFirma=useCallback(f=>{setFirma(f);lsSaveFirma(f);},[]);
 
   useEffect(()=>{
     applyTheme(theme);
@@ -1814,6 +2081,7 @@ function App({session,onSignOut}){
     {id:"unos",label:"Unos sati",icon:<IconClock/>},
     {id:"pregled",label:"Mjesečni pregled",icon:<IconCalendar/>},
     {id:"izvjestaji",label:"Izvještaji",icon:<IconReport/>},
+    {id:"postavke",label:"Postavke",icon:<IconPostavke/>},
   ];
 
   return(
@@ -1829,7 +2097,9 @@ function App({session,onSignOut}){
       {/* Sidebar — Apple macOS style */}
       <div className={"dys-sidebar"+(menuOpen?" open":"")} style={{width:228,background:"var(--sidebar-bg)",backdropFilter:"blur(24px)",WebkitBackdropFilter:"blur(24px)",borderRight:"1px solid var(--border)",display:"flex",flexDirection:"column",flexShrink:0,position:"fixed",top:0,left:0,bottom:0,zIndex:100}}>
         <div style={{padding:"24px 18px 14px"}}>
-          <div style={{fontWeight:700,fontSize:16,color:"var(--text-primary)",letterSpacing:"-0.025em"}}>dotyourspot</div>
+          {firma.logo
+            ? <img src={firma.logo} alt={firma.naziv} style={{maxWidth:"100%",maxHeight:46,objectFit:"contain",display:"block"}}/>
+            : <div style={{fontWeight:700,fontSize:16,color:"var(--text-primary)",letterSpacing:"-0.025em"}}>dotyourspot</div>}
           <div style={{marginTop:10}}>
             <select value={year} onChange={e=>setYear(Number(e.target.value))}
               style={{background:"var(--hover)",border:"1px solid var(--border)",borderRadius:8,fontSize:12,color:"var(--text-secondary)",cursor:"pointer",fontWeight:500,padding:"4px 10px",fontFamily:"var(--font)"}}>
@@ -1846,41 +2116,6 @@ function App({session,onSignOut}){
           ))}
         </nav>
         <div style={{padding:"14px 18px 20px",borderTop:"1px solid var(--border)"}}>
-          {/* Tema */}
-          <div style={{marginBottom:14}}>
-            <div style={{fontSize:10,color:"var(--text-tertiary)",fontWeight:600,letterSpacing:"0.05em",textTransform:"uppercase",marginBottom:8}}>Izgled</div>
-            <div className="theme-seg">
-              {[
-                {v:"light",l:"Svijetla",i:<IconSun/>},
-                {v:"dark",l:"Tamna",i:<IconMoon/>},
-                {v:"system",l:"Sustav",i:<IconAuto/>},
-              ].map(o=>(
-                <button key={o.v} className={theme===o.v?"on":""} onClick={()=>setTheme(o.v)} title={o.l}>
-                  {o.i}<span>{o.l}</span>
-                </button>
-              ))}
-            </div>
-          </div>
-          {/* Backup / Restore */}
-          <div style={{marginBottom:14}}>
-            <div style={{fontSize:10,color:"var(--text-tertiary)",fontWeight:600,letterSpacing:"0.05em",textTransform:"uppercase",marginBottom:8}}>Backup podataka</div>
-            <div style={{display:"flex",gap:7}}>
-              <button onClick={handleExportJSON}
-                style={{flex:1,display:"flex",alignItems:"center",justifyContent:"center",gap:5,background:"var(--surface)",border:"1px solid var(--border)",borderRadius:10,padding:"8px 6px",cursor:"pointer",fontSize:12,fontWeight:500,color:"var(--text-secondary)",boxShadow:"var(--shadow-sm)",transition:"all .15s"}}
-                onMouseEnter={e=>{e.currentTarget.style.background="var(--bg)";e.currentTarget.style.borderColor="var(--border-strong)";}}
-                onMouseLeave={e=>{e.currentTarget.style.background="var(--surface)";e.currentTarget.style.borderColor="var(--border)";}}>
-                <svg width="13" height="13" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                Spremi
-              </button>
-              <label style={{flex:1,display:"flex",alignItems:"center",justifyContent:"center",gap:5,background:"var(--surface)",border:"1px solid var(--border)",borderRadius:10,padding:"8px 6px",cursor:"pointer",fontSize:12,fontWeight:500,color:"var(--text-secondary)",boxShadow:"var(--shadow-sm)",transition:"all .15s"}}
-                onMouseEnter={e=>{e.currentTarget.style.background="var(--bg)";e.currentTarget.style.borderColor="var(--border-strong)";}}
-                onMouseLeave={e=>{e.currentTarget.style.background="var(--surface)";e.currentTarget.style.borderColor="var(--border)";}}>
-                <svg width="13" height="13" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
-                Učitaj
-                <input type="file" accept=".json" onChange={handleImportJSON} style={{position:"absolute",opacity:0,width:0,height:0,pointerEvents:"none"}}/>
-              </label>
-            </div>
-          </div>
           {/* Stanje sinkronizacije */}
           <div style={{marginBottom:12,padding:"10px 11px",background:"var(--surface)",border:"1px solid var(--border)",borderRadius:10,boxShadow:"var(--shadow-sm)"}}>
             <div style={{display:"flex",alignItems:"center",gap:7}}>
@@ -1909,7 +2144,7 @@ function App({session,onSignOut}){
           </div>
 
           <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",gap:8}}>
-            <div style={{fontSize:10.5,color:"var(--text-tertiary)",fontWeight:500,letterSpacing:"0.04em",textTransform:"uppercase"}}>DOT YOUR SPOT d.o.o.</div>
+            <div style={{fontSize:10.5,color:"var(--text-tertiary)",fontWeight:500,letterSpacing:"0.04em",textTransform:"uppercase",overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}}>{firma.naziv||"DOT YOUR SPOT d.o.o."}</div>
             <button onClick={onSignOut} title="Odjava"
               style={{background:"none",border:"none",cursor:"pointer",color:"var(--text-tertiary)",display:"flex",padding:2,flexShrink:0}}>
               <svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
@@ -1920,12 +2155,37 @@ function App({session,onSignOut}){
 
       {/* Main */}
       <div className="dys-main" style={{marginLeft:228,flex:1,padding:"40px 44px",maxWidth:"calc(100vw - 228px)",minHeight:"100vh"}}>
-        {page==="home"&&<PageHome data={data} year={year} month={month} setPage={setPage} setSelectedEmp={setSelectedEmp} openDayModal={openDayModal} employees={employees}/>}
+        {page==="home"&&<PageHome data={data} year={year} month={month} setPage={setPage} setSelectedEmp={setSelectedEmp} openDayModal={openDayModal} employees={employees} firma={firma} sync={sync}/>}
         {page==="zaposlenici"&&<PageZaposlenici data={data} year={year} month={month} setPage={setPage} setSelectedEmp={setSelectedEmp} employees={employees} onSaveEmployee={saveEmployee} onDeleteEmployee={deleteEmployee}/>}
         {page==="unos"&&<PageUnos data={data} year={year} month={month} setYear={setYear} setMonth={setMonth} selectedEmp={selectedEmp} setSelectedEmp={setSelectedEmp} persist={persist} excelReady={xlReady} employees={employees} initialDay={editDayModal&&editDayModal.day} onConsumeInitial={()=>setEditDayModal(null)}/>}
         {page==="pregled"&&<PagePregled data={data} year={year} month={month} setYear={setYear} setMonth={setMonth} employees={employees}/>}
         {page==="izvjestaji"&&<PageIzvjestaji data={data} year={year} month={month} excelReady={xlReady} employees={employees}/>}
+        {page==="postavke"&&<PagePostavke firma={firma} onSaveFirma={saveFirma} theme={theme} setTheme={setTheme}
+          onExport={handleExportJSON} onImport={handleImportJSON} sync={sync} syncMsg={syncMsg}
+          cloudEmpty={cloudEmpty} onMigrate={handleMigrate} onPull={()=>runSync(pull)} onSignOut={onSignOut}
+          employees={employees} data={data}/>}
       </div>
+
+      {/* Donja navigacija — samo mobitel */}
+      <nav className="dys-tabbar">
+        <button className={"tab"+(page==="home"?" on":"")} onClick={()=>{setPage("home");setMenuOpen(false);}}>
+          <IconHome/><span>Početna</span>
+        </button>
+        <button className={"tab"+(page==="unos"?" on":"")} onClick={()=>{setPage("unos");setMenuOpen(false);}}>
+          <IconClock/><span>Unos sati</span>
+        </button>
+        <button className="tab-fab" aria-label="Novi unos" onClick={()=>{
+          const t=new Date();
+          setYear(t.getFullYear());setMonth(t.getMonth());
+          openDayModal(t.getDate(),selectedEmp);
+        }}><IconPlus/></button>
+        <button className={"tab"+(page==="pregled"?" on":"")} onClick={()=>{setPage("pregled");setMenuOpen(false);}}>
+          <IconCalendar/><span>Pregled</span>
+        </button>
+        <button className={"tab"+(menuOpen?" on":"")} onClick={()=>setMenuOpen(o=>!o)}>
+          <IconVise/><span>Više</span>
+        </button>
+      </nav>
     </div>
   );
 }
