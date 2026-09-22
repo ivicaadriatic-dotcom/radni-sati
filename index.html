@@ -543,6 +543,8 @@ td{letter-spacing:-0.01em;}
 .post-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px 18px}
 .post-polje{display:flex;flex-direction:column;gap:6px;min-width:0}
 
+.home-logo{display:none}
+
 /* Donja navigacija — skrivena na računalu */
 .dys-tabbar{display:none}
 
@@ -586,6 +588,7 @@ td{letter-spacing:-0.01em;}
   .stat-broj{font-size:24px!important}
   .stat-labela{font-size:11.5px!important}
   .home-novi{display:none!important}
+  .home-logo{display:block!important;max-height:34px;max-width:170px;object-fit:contain;margin-bottom:10px}
   .post-grid{grid-template-columns:1fr!important}
   .sekcija-naslov{margin:20px 0 10px!important}
 }
@@ -732,8 +735,12 @@ async function _cloudLoad(){
   if(r1.error) throw r1.error;
   if(r2.error) throw r2.error;
   const employees=(r1.data||[]).map(r=>({id:r.id,name:r.ime,title:r.titula||""}));
-  const data={}; (r2.data||[]).forEach(r=>{data[r.kljuc]=r.podaci||{};});
-  return {employees,data};
+  const data={}; let firma=null;
+  (r2.data||[]).forEach(r=>{
+    if(r.kljuc===FIRMA_KLJUC){firma=r.podaci||null;return;}
+    data[r.kljuc]=r.podaci||{};
+  });
+  return {employees,data,firma};
 }
 async function cloudSaveKeys(allData,keys){
   return withRetry(()=>_cloudSaveKeys(allData,keys));
@@ -743,6 +750,15 @@ async function _cloudSaveKeys(allData,keys){
   const rows=keys.map(k=>({kljuc:k,podaci:allData[k]||{},azurirano:new Date().toISOString()}));
   const {error}=await c.from("evidencija").upsert(rows,{onConflict:"kljuc"});
   if(error) throw error;
+}
+const FIRMA_KLJUC="__firma__";
+async function cloudSaveFirma(f){
+  return withRetry(async()=>{
+    const c=sbClient(); if(!c)return;
+    const {error}=await c.from("evidencija")
+      .upsert([{kljuc:FIRMA_KLJUC,podaci:f,azurirano:new Date().toISOString()}],{onConflict:"kljuc"});
+    if(error) throw error;
+  });
 }
 async function cloudSaveEmps(emps){
   return withRetry(()=>_cloudSaveEmps(emps));
@@ -1267,6 +1283,7 @@ function PageHome({data,year,month,setPage,setSelectedEmp,openDayModal,employees
       {/* Zaglavlje */}
       <div className="home-head">
         <div style={{minWidth:0}}>
+          {firma&&firma.logo&&<img className="home-logo" src={firma.logo} alt={firma.naziv||""}/>}
           <h1 style={{fontSize:24,fontWeight:700,color:"var(--text-primary)",letterSpacing:"-0.03em",marginBottom:3}}>Dobrodošli</h1>
           <div style={{fontSize:13,color:"var(--text-tertiary)",overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}}>
             {(firma&&firma.naziv)||"DOT YOUR SPOT d.o.o."} · {MONTHS[month]} {year}
@@ -1790,14 +1807,43 @@ function PagePostavke({firma,onSaveFirma,theme,setTheme,onExport,onImport,sync,s
 
   const spremi=()=>{onSaveFirma(f);setSpremljeno(true);setTimeout(()=>setSpremljeno(false),2200);};
 
+  const [logoRadi,setLogoRadi]=useState(false);
+  // Slika se smanjuje u pregledniku pa veličina izvorne datoteke nije bitna.
   const ucitajLogo=ev=>{
     const file=ev.target.files&&ev.target.files[0];
-    if(!file)return;
-    if(file.size>400*1024){alert("Logo je prevelik. Odaberi sliku do 400 KB.");return;}
-    const r=new FileReader();
-    r.onload=()=>{const nf={...f,logo:r.result};setF(nf);onSaveFirma(nf);};
-    r.readAsDataURL(file);
     ev.target.value="";
+    if(!file)return;
+    if(!/^image\//.test(file.type)){alert("Odaberi sliku (PNG ili JPG).");return;}
+    setLogoRadi(true);
+    const r=new FileReader();
+    r.onerror=()=>{setLogoRadi(false);alert("Sliku nije bilo moguće pročitati.");};
+    r.onload=()=>{
+      const img=new Image();
+      img.onerror=()=>{setLogoRadi(false);alert("Sliku nije bilo moguće otvoriti.");};
+      img.onload=()=>{
+        try{
+          const MAX=400;
+          const k=Math.min(1,MAX/Math.max(img.width,img.height));
+          const w=Math.max(1,Math.round(img.width*k)),h=Math.max(1,Math.round(img.height*k));
+          const cv=document.createElement("canvas");cv.width=w;cv.height=h;
+          const cx=cv.getContext("2d");
+          cx.imageSmoothingQuality="high";
+          cx.drawImage(img,0,0,w,h);
+          let out=cv.toDataURL("image/png");
+          if(out.length>260000){                       // ako je i dalje velik, u JPEG na bijeloj podlozi
+            const cv2=document.createElement("canvas");cv2.width=w;cv2.height=h;
+            const c2=cv2.getContext("2d");
+            c2.fillStyle="#ffffff";c2.fillRect(0,0,w,h);
+            c2.drawImage(img,0,0,w,h);
+            out=cv2.toDataURL("image/jpeg",0.88);
+          }
+          const nf={...f,logo:out};setF(nf);onSaveFirma(nf);
+        }catch(e){alert("Sliku nije bilo moguće obraditi.");}
+        setLogoRadi(false);
+      };
+      img.src=r.result;
+    };
+    r.readAsDataURL(file);
   };
 
   const polja=[
@@ -1847,8 +1893,8 @@ function PagePostavke({firma,onSaveFirma,theme,setTheme,onExport,onImport,sync,s
                 : <span style={{fontSize:11,color:"var(--text-tertiary)",textAlign:"center",padding:6}}>Nema logotipa</span>}
             </div>
             <div style={{display:"flex",flexDirection:"column",gap:8}}>
-              <label className="btn btn-outline" style={{cursor:"pointer",display:"inline-flex",alignItems:"center",gap:6}}>
-                {f.logo?"Zamijeni logo":"Učitaj logo"}
+              <label className="btn btn-outline" style={{cursor:"pointer",position:"relative",display:"inline-flex",alignItems:"center",gap:6}}>
+                {logoRadi?"Obrađujem…":(f.logo?"Zamijeni logo":"Učitaj logo")}
                 <input type="file" accept="image/*" onChange={ucitajLogo} style={{position:"absolute",opacity:0,width:0,height:0}}/>
               </label>
               {f.logo&&(
@@ -1856,7 +1902,7 @@ function PagePostavke({firma,onSaveFirma,theme,setTheme,onExport,onImport,sync,s
                   style={{color:"var(--red)"}}>Ukloni logo</button>
               )}
               <div style={{fontSize:11,color:"var(--text-tertiary)",maxWidth:240,lineHeight:1.4}}>
-                PNG ili JPG do 400 KB. Prikazuje se u bočnom izborniku i zaglavlju na mobitelu.
+                PNG ili JPG bilo koje veličine — slika se automatski smanjuje. Prikazuje se u bočnom izborniku.
               </div>
             </div>
           </div>
@@ -1939,7 +1985,10 @@ function App({session,onSignOut}){
   const [cloudEmpty,setCloudEmpty]=useState(false);
   const [theme,setTheme]=useState(()=>{try{return localStorage.getItem(LS_THEME)||"system"}catch{return"system"}});
   const [firma,setFirma]=useState(()=>lsLoadFirma());
-  const saveFirma=useCallback(f=>{setFirma(f);lsSaveFirma(f);},[]);
+  const saveFirma=useCallback(f=>{
+    setFirma(f);lsSaveFirma(f);
+    runSync(()=>cloudSaveFirma(f));
+  },[runSync]);
 
   useEffect(()=>{
     applyTheme(theme);
@@ -1975,6 +2024,7 @@ function App({session,onSignOut}){
       setSelectedEmp(cur=>r.employees.some(e=>e.id===cur)?cur:r.employees[0].id);
     }
     if(hasData){setData(r.data);lsSave(r.data);}
+    if(r.firma){const nf={...PRAZNA_FIRMA,...r.firma};setFirma(nf);lsSaveFirma(nf);}
     setCloudEmpty(!hasEmps&&!hasData);
   },[]);
 
@@ -2023,7 +2073,7 @@ function App({session,onSignOut}){
   },[runSync]);
 
   const handleExportJSON=()=>{
-    const backup={data,employees,exportedAt:new Date().toISOString(),version:"dys_v2"};
+    const backup={data,employees,firma,exportedAt:new Date().toISOString(),version:"dys_v2"};
     const blob=new Blob([JSON.stringify(backup,null,2)],{type:"application/json"});
     const a=document.createElement("a");
     a.href=URL.createObjectURL(blob);
@@ -2044,6 +2094,7 @@ function App({session,onSignOut}){
           setEmployees(backup.employees);
           lsSaveEmps(backup.employees);
         }
+        if(backup.firma&&typeof backup.firma==="object"){saveFirma({...PRAZNA_FIRMA,...backup.firma});}
         alert("✅ Podaci su uspješno učitani!");
       }catch(err){
         alert("❌ Greška pri čitanju datoteke. Provjerite je li datoteka ispravna.");
