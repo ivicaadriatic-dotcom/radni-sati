@@ -1803,9 +1803,14 @@ function PageIzvjestaji({data,year,month,excelReady,employees}){
 function PagePostavke({firma,onSaveFirma,theme,setTheme,onExport,onImport,sync,syncMsg,cloudEmpty,onMigrate,onPull,onSignOut,employees,data}){
   const [f,setF]=useState(firma);
   const [spremljeno,setSpremljeno]=useState(false);
-  const set=(k,v)=>{setF(p=>({...p,[k]:v}));setSpremljeno(false);};
+  const [mijenjano,setMijenjano]=useState(false);
+  const set=(k,v)=>{setF(p=>({...p,[k]:v}));setMijenjano(true);setSpremljeno(false);};
 
-  const spremi=()=>{onSaveFirma(f);setSpremljeno(true);setTimeout(()=>setSpremljeno(false),2200);};
+  // Kad podaci stignu s poslužitelja, obrazac se mora osvježiti.
+  // Ako korisnik upravo nešto upisuje, njegov unos ostaje netaknut.
+  useEffect(()=>{ if(!mijenjano) setF(firma); },[firma,mijenjano]);
+
+  const spremi=()=>{onSaveFirma(f);setMijenjano(false);setSpremljeno(true);setTimeout(()=>setSpremljeno(false),2200);};
 
   const [logoRadi,setLogoRadi]=useState(false);
   // Slika se smanjuje u pregledniku pa veličina izvorne datoteke nije bitna.
@@ -1837,7 +1842,7 @@ function PagePostavke({firma,onSaveFirma,theme,setTheme,onExport,onImport,sync,s
             c2.drawImage(img,0,0,w,h);
             out=cv2.toDataURL("image/jpeg",0.88);
           }
-          const nf={...f,logo:out};setF(nf);onSaveFirma(nf);
+          const nf={...f,logo:out};setF(nf);setMijenjano(false);onSaveFirma(nf);
         }catch(e){alert("Sliku nije bilo moguće obraditi.");}
         setLogoRadi(false);
       };
@@ -1898,7 +1903,7 @@ function PagePostavke({firma,onSaveFirma,theme,setTheme,onExport,onImport,sync,s
                 <input type="file" accept="image/*" onChange={ucitajLogo} style={{position:"absolute",opacity:0,width:0,height:0}}/>
               </label>
               {f.logo&&(
-                <button className="btn btn-outline" onClick={()=>{const nf={...f,logo:""};setF(nf);onSaveFirma(nf);}}
+                <button className="btn btn-outline" onClick={()=>{const nf={...f,logo:""};setF(nf);setMijenjano(false);onSaveFirma(nf);}}
                   style={{color:"var(--red)"}}>Ukloni logo</button>
               )}
               <div style={{fontSize:11,color:"var(--text-tertiary)",maxWidth:240,lineHeight:1.4}}>
