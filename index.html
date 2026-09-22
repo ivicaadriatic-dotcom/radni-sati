@@ -688,6 +688,7 @@ const lsLoadEmps=()=>{try{const r=localStorage.getItem(LS_EMP_KEY);return r?JSON
 const lsSaveEmps=e=>{try{localStorage.setItem(LS_EMP_KEY,JSON.stringify(e))}catch{}};
 
 // ── Podaci tvrtke (Postavke) ───────────────────────────────────────────────────
+const VERZIJA="2026-09-22 · 5";
 const LS_FIRMA="dys_firma_v1";
 const PRAZNA_FIRMA={naziv:"DOT YOUR SPOT d.o.o.",oib:"",adresa:"",email:"",telefon:"",iban:"",logo:""};
 const lsLoadFirma=()=>{try{const r=localStorage.getItem(LS_FIRMA);return r?{...PRAZNA_FIRMA,...JSON.parse(r)}:{...PRAZNA_FIRMA}}catch{return{...PRAZNA_FIRMA}}};
@@ -1800,7 +1801,7 @@ function PageIzvjestaji({data,year,month,excelReady,employees}){
 
 // ── Main App ───────────────────────────────────────────────────────────────────
 // ── Postavke ───────────────────────────────────────────────────────────────────
-function PagePostavke({firma,onSaveFirma,theme,setTheme,onExport,onImport,sync,syncMsg,cloudEmpty,onMigrate,onPull,onSignOut,employees,data}){
+function PagePostavke({firma,onSaveFirma,theme,setTheme,onExport,onImport,sync,syncMsg,cloudEmpty,onMigrate,onPull,onSignOut,employees,data,naServeru}){
   const [f,setF]=useState(firma);
   const [spremljeno,setSpremljeno]=useState(false);
   const [mijenjano,setMijenjano]=useState(false);
@@ -1810,7 +1811,13 @@ function PagePostavke({firma,onSaveFirma,theme,setTheme,onExport,onImport,sync,s
   // Ako korisnik upravo nešto upisuje, njegov unos ostaje netaknut.
   useEffect(()=>{ if(!mijenjano) setF(firma); },[firma,mijenjano]);
 
-  const spremi=()=>{onSaveFirma(f);setMijenjano(false);setSpremljeno(true);setTimeout(()=>setSpremljeno(false),2200);};
+  const [ishod,setIshod]=useState(null);
+  const spremi=async()=>{
+    setMijenjano(false);setIshod(null);setSpremljeno(false);
+    const r=await onSaveFirma(f);
+    if(r&&r.ok){setSpremljeno(true);setIshod({ok:true,tekst:"Spremljeno i poslano na poslužitelj"});}
+    else{setIshod({ok:false,tekst:"Spremljeno samo na ovom uređaju — poslužitelj javlja: "+((r&&r.poruka)||"nepoznata greška")});}
+  };
 
   const [logoRadi,setLogoRadi]=useState(false);
   // Slika se smanjuje u pregledniku pa veličina izvorne datoteke nije bitna.
@@ -1913,9 +1920,13 @@ function PagePostavke({firma,onSaveFirma,theme,setTheme,onExport,onImport,sync,s
           </div>
         </div>
 
-        <div style={{marginTop:18,display:"flex",alignItems:"center",gap:12}}>
+        <div style={{marginTop:18,display:"flex",alignItems:"center",gap:12,flexWrap:"wrap"}}>
           <button className="btn btn-primary" onClick={spremi}><IconCheck/> Spremi podatke</button>
-          {spremljeno&&<span style={{fontSize:13,color:"var(--green)",fontWeight:600}}>Spremljeno</span>}
+          {ishod&&(
+            <span style={{fontSize:13,fontWeight:600,color:ishod.ok?"var(--green)":"var(--red)",lineHeight:1.4,flex:"1 1 220px"}}>
+              {ishod.tekst}
+            </span>
+          )}
         </div>
       </Odjeljak>
 
@@ -1961,6 +1972,17 @@ function PagePostavke({firma,onSaveFirma,theme,setTheme,onExport,onImport,sync,s
         )}
       </Odjeljak>
 
+      <Odjeljak naslov="O aplikaciji">
+        <div style={{fontSize:13,color:"var(--text-secondary)",lineHeight:1.7}}>
+          Verzija: <strong style={{color:"var(--text-primary)"}}>{VERZIJA}</strong><br/>
+          Podaci tvrtke na poslužitelju:{" "}
+          <strong style={{color:naServeru?"var(--green)":"var(--red)"}}>{naServeru?"pronađeni":"nisu pronađeni"}</strong>
+        </div>
+        <div style={{fontSize:12,color:"var(--text-tertiary)",marginTop:8,lineHeight:1.5}}>
+          Ako se verzija razlikuje od one na drugom uređaju, taj uređaj još koristi staru kopiju iz predmemorije.
+        </div>
+      </Odjeljak>
+
       <Odjeljak naslov="Račun">
         <button className="btn btn-outline" onClick={onSignOut} style={{color:"var(--red)",display:"inline-flex",alignItems:"center",gap:7}}>
           <svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
@@ -1990,10 +2012,19 @@ function App({session,onSignOut}){
   const [cloudEmpty,setCloudEmpty]=useState(false);
   const [theme,setTheme]=useState(()=>{try{return localStorage.getItem(LS_THEME)||"system"}catch{return"system"}});
   const [firma,setFirma]=useState(()=>lsLoadFirma());
-  const saveFirma=useCallback(f=>{
+  const [firmaNaServeru,setFirmaNaServeru]=useState(false);
+  const saveFirma=useCallback(async f=>{
     setFirma(f);lsSaveFirma(f);
-    runSync(()=>cloudSaveFirma(f));
-  },[runSync]);
+    setSync("run");setSyncMsg("");
+    try{ await cloudSaveFirma(f); setSync("ok"); return {ok:true}; }
+    catch(e){
+      console.error(e);
+      setSync("err");
+      const m=e?.message||String(e);
+      setSyncMsg(m);
+      return {ok:false,poruka:m};
+    }
+  },[]);
 
   useEffect(()=>{
     applyTheme(theme);
@@ -2029,6 +2060,7 @@ function App({session,onSignOut}){
       setSelectedEmp(cur=>r.employees.some(e=>e.id===cur)?cur:r.employees[0].id);
     }
     if(hasData){setData(r.data);lsSave(r.data);}
+    setFirmaNaServeru(!!r.firma);
     if(r.firma){const nf={...PRAZNA_FIRMA,...r.firma};setFirma(nf);lsSaveFirma(nf);}
     setCloudEmpty(!hasEmps&&!hasData);
   },[]);
@@ -2219,7 +2251,7 @@ function App({session,onSignOut}){
         {page==="postavke"&&<PagePostavke firma={firma} onSaveFirma={saveFirma} theme={theme} setTheme={setTheme}
           onExport={handleExportJSON} onImport={handleImportJSON} sync={sync} syncMsg={syncMsg}
           cloudEmpty={cloudEmpty} onMigrate={handleMigrate} onPull={()=>runSync(pull)} onSignOut={onSignOut}
-          employees={employees} data={data}/>}
+          employees={employees} data={data} naServeru={firmaNaServeru}/>}
       </div>
 
       {/* Donja navigacija — samo mobitel */}
