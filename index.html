@@ -688,7 +688,7 @@ const lsLoadEmps=()=>{try{const r=localStorage.getItem(LS_EMP_KEY);return r?JSON
 const lsSaveEmps=e=>{try{localStorage.setItem(LS_EMP_KEY,JSON.stringify(e))}catch{}};
 
 // ── Podaci tvrtke (Postavke) ───────────────────────────────────────────────────
-const VERZIJA="2026-09-22 · 5";
+const VERZIJA="2026-09-22 · 7";
 const LS_FIRMA="dys_firma_v1";
 const PRAZNA_FIRMA={naziv:"DOT YOUR SPOT d.o.o.",oib:"",adresa:"",email:"",telefon:"",iban:"",logo:""};
 const lsLoadFirma=()=>{try{const r=localStorage.getItem(LS_FIRMA);return r?{...PRAZNA_FIRMA,...JSON.parse(r)}:{...PRAZNA_FIRMA}}catch{return{...PRAZNA_FIRMA}}};
@@ -1820,18 +1820,23 @@ function PagePostavke({firma,onSaveFirma,theme,setTheme,onExport,onImport,sync,s
   };
 
   const [logoRadi,setLogoRadi]=useState(false);
+  const [logoPoruka,setLogoPoruka]=useState(null);
+  const logoRef=useRef(null);
   // Slika se smanjuje u pregledniku pa veličina izvorne datoteke nije bitna.
   const ucitajLogo=ev=>{
     const file=ev.target.files&&ev.target.files[0];
-    ev.target.value="";
-    if(!file)return;
-    if(!/^image\//.test(file.type)){alert("Odaberi sliku (PNG ili JPG).");return;}
-    setLogoRadi(true);
+    if(!file){setLogoPoruka({ok:false,t:"Nijedna datoteka nije odabrana."});return;}
+    const opis=file.name+" · "+Math.round(file.size/1024)+" KB"+(file.type?" · "+file.type:" · bez vrste");
+    if(!/^image\//.test(file.type)){
+      setLogoPoruka({ok:false,t:"Odabrana datoteka nije slika ("+opis+"). Odaberi PNG ili JPG."});
+      return;
+    }
+    setLogoRadi(true);setLogoPoruka({ok:null,t:"Učitavam "+opis+"…"});
     const r=new FileReader();
-    r.onerror=()=>{setLogoRadi(false);alert("Sliku nije bilo moguće pročitati.");};
+    r.onerror=()=>{setLogoRadi(false);setLogoPoruka({ok:false,t:"Datoteku nije bilo moguće pročitati ("+opis+")."});};
     r.onload=()=>{
       const img=new Image();
-      img.onerror=()=>{setLogoRadi(false);alert("Sliku nije bilo moguće otvoriti.");};
+      img.onerror=()=>{setLogoRadi(false);setLogoPoruka({ok:false,t:"Sliku nije bilo moguće otvoriti — možda je oštećena ("+opis+")."});};
       img.onload=()=>{
         try{
           const MAX=400;
@@ -1849,8 +1854,14 @@ function PagePostavke({firma,onSaveFirma,theme,setTheme,onExport,onImport,sync,s
             c2.drawImage(img,0,0,w,h);
             out=cv2.toDataURL("image/jpeg",0.88);
           }
-          const nf={...f,logo:out};setF(nf);setMijenjano(false);onSaveFirma(nf);
-        }catch(e){alert("Sliku nije bilo moguće obraditi.");}
+          const nf={...f,logo:out};setF(nf);setMijenjano(false);
+          setLogoPoruka({ok:true,t:"Logo učitan ("+w+"×"+h+" px, "+Math.round(out.length/1024)+" KB). Sprema se…"});
+          onSaveFirma(nf).then(res=>{
+            setLogoPoruka(res&&res.ok
+              ?{ok:true,t:"Logo spremljen i poslan na poslužitelj."}
+              :{ok:false,t:"Logo je spremljen na ovom uređaju, ali poslužitelj javlja: "+((res&&res.poruka)||"nepoznata greška")});
+          });
+        }catch(e){setLogoPoruka({ok:false,t:"Sliku nije bilo moguće obraditi: "+(e&&e.message||e)});}
         setLogoRadi(false);
       };
       img.src=r.result;
@@ -1884,6 +1895,10 @@ function PagePostavke({firma,onSaveFirma,theme,setTheme,onExport,onImport,sync,s
         <div style={{fontSize:13,color:"var(--text-tertiary)",marginTop:2}}>Podaci tvrtke, izgled i sigurnosna kopija</div>
       </div>
 
+      {/* Polje za odabir slike stoji izvan promjenjivog dijela stabla da ga React ne zamjenjuje. */}
+      <input ref={logoRef} id="dys-logo-input" type="file" accept="image/*"
+        onChange={ucitajLogo} style={{display:"none"}}/>
+
       <Odjeljak naslov="Podaci tvrtke" opis="Koriste se u zaglavlju aplikacije i na izvještajima">
         <div className="post-grid">
           {polja.map(p=>(
@@ -1905,17 +1920,29 @@ function PagePostavke({firma,onSaveFirma,theme,setTheme,onExport,onImport,sync,s
                 : <span style={{fontSize:11,color:"var(--text-tertiary)",textAlign:"center",padding:6}}>Nema logotipa</span>}
             </div>
             <div style={{display:"flex",flexDirection:"column",gap:8}}>
-              <label className="btn btn-outline" style={{cursor:"pointer",position:"relative",display:"inline-flex",alignItems:"center",gap:6}}>
+              <button type="button" className="btn btn-outline" disabled={logoRadi}
+                onClick={()=>{
+                  setLogoPoruka(null);
+                  const el=logoRef.current;
+                  if(el){ el.value=""; el.click(); }
+                }}
+                style={{display:"inline-flex",alignItems:"center",gap:6}}>
                 {logoRadi?"Obrađujem…":(f.logo?"Zamijeni logo":"Učitaj logo")}
-                <input type="file" accept="image/*" onChange={ucitajLogo} style={{position:"absolute",opacity:0,width:0,height:0}}/>
-              </label>
+              </button>
+
               {f.logo&&(
                 <button className="btn btn-outline" onClick={()=>{const nf={...f,logo:""};setF(nf);setMijenjano(false);onSaveFirma(nf);}}
                   style={{color:"var(--red)"}}>Ukloni logo</button>
               )}
-              <div style={{fontSize:11,color:"var(--text-tertiary)",maxWidth:240,lineHeight:1.4}}>
+              <div style={{fontSize:11,color:"var(--text-tertiary)",maxWidth:260,lineHeight:1.4}}>
                 PNG ili JPG bilo koje veličine — slika se automatski smanjuje. Prikazuje se u bočnom izborniku.
               </div>
+              {logoPoruka&&(
+                <div style={{fontSize:12,fontWeight:600,maxWidth:280,lineHeight:1.45,
+                  color:logoPoruka.ok===true?"var(--green)":logoPoruka.ok===false?"var(--red)":"var(--text-secondary)"}}>
+                  {logoPoruka.t}
+                </div>
+              )}
             </div>
           </div>
         </div>
